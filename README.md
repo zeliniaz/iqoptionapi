@@ -1,4 +1,33 @@
+
 # IQ Option API
+
+## How to contribute:
+
+Fork this project.
+
+Clone your project.
+
+Remove default remote
+```
+git remote remove origin
+```
+Register in your local project the following remote:
+
+pull remote should be my repository
+```
+git remote add origin git@github.com:evecimar/iqoptionapi.git
+```
+push remote should be your repository
+```
+git remote set-url --push origin git@github.com:your_repository/iqoptionapi.git
+```
+
+Set like a default repository
+
+```
+git branch --set-upstream-to=origin/master master
+```
+make a pull request to send me your contribution
 
 [![Build Status](https://travis-ci.org/Lu-Yi-Hsun/iqoptionapi.svg?branch=master)](https://travis-ci.org/Lu-Yi-Hsun/iqoptionapi)
 [![cover](https://codecov.io/gh/Lu-Yi-Hsun/iqoptionapi/branch/master/graphs/badge.svg?branch=master)](https://codecov.io/gh/Lu-Yi-Hsun/iqoptionapi)
