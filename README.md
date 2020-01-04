@@ -1,11 +1,44 @@
+
 # IQ Option API
+
+## How to contribute:
+
+Fork this project.
+
+Clone your project.
+
+Remove default remote
+```
+git remote remove origin
+```
+Register in your local project the following remote:
+
+pull remote should be my repository
+```
+git remote add origin git@github.com:evecimar/iqoptionapi.git
+```
+push remote should be your repository
+```
+git remote set-url --push origin git@github.com:your_repository/iqoptionapi.git
+```
+
+Set like a default repository
+
+```
+git branch --set-upstream-to=origin/master master
+```
+make a pull request to send me your contribution
 
 [![Build Status](https://travis-ci.org/Lu-Yi-Hsun/iqoptionapi.svg?branch=master)](https://travis-ci.org/Lu-Yi-Hsun/iqoptionapi)
 [![cover](https://codecov.io/gh/Lu-Yi-Hsun/iqoptionapi/branch/master/graphs/badge.svg?branch=master)](https://codecov.io/gh/Lu-Yi-Hsun/iqoptionapi)
 
 [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.me/iqoptionapi)
 
-last update:2019/11/4
+last update:2019/11/22
+
+Version:5.1
+add[get_option_open_by_other_pc](#getoptionopenbyotherpc) api
+
 
 Version:5.0
 
@@ -536,6 +569,29 @@ input how many data you want to get from Trading History(only for binary option)
 
 ```
 print(I_want_money.get_optioninfo_v2(10))
+```
+#### <a id=getoptionopenbyotherpc>get_option_open_by_other_pc</a>
+
+if your account is login in other plance/PC and doing buy option
+
+you can get the option by this function
+
+```python
+import time
+from iqoptionapi.stable_api import IQ_Option
+I_want_money=IQ_Option("email","password")
+while True:
+    #please open website iqoption and buy some binary option
+    if I_want_money.get_option_open_by_other_pc()!={}:
+        break
+    time.sleep(1)
+print("Get option from other Pc and same account")
+print(I_want_money.get_option_open_by_other_pc())
+
+id=list(I_want_money.get_option_open_by_other_pc().keys())[0]
+I_want_money.del_option_open_by_other_pc(id)
+print("After del by id")
+print(I_want_money.get_option_open_by_other_pc())
 ```
 
 ___
