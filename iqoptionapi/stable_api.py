@@ -200,6 +200,9 @@ class IQ_Option:
     def get_all_init_v2(self):
         self.api.api_option_init_all_result_v2 = None
 
+        if self.check_connect()==False:
+            self.connect()
+
         self.api.get_api_option_init_all_v2()
         start_t=time.time()
         while self.api.api_option_init_all_result_v2==None:
@@ -217,17 +220,19 @@ class IQ_Option:
         binary_data=self.get_all_init_v2()
         binary_list=["binary","turbo"]
         for option in binary_list:
-            for actives_id in binary_data[option]["actives"]:
-                active=binary_data[option]["actives"][actives_id]
-                name=str(active["name"]).split(".")[1]
-                if active["enabled"]==True:
-                    if active["is_suspended"]==True:
-                        OPEN_TIME[option][name]["open"]=False
+            try:
+                for actives_id in binary_data[option]["actives"]:
+                    active=binary_data[option]["actives"][actives_id]
+                    name=str(active["name"]).split(".")[1]
+                    if active["enabled"]==True:
+                        if active["is_suspended"]==True:
+                            OPEN_TIME[option][name]["open"]=False
+                        else:
+                            OPEN_TIME[option][name]["open"]=True
                     else:
-                        OPEN_TIME[option][name]["open"]=True
-                else:
-                    OPEN_TIME[option][name]["open"]=active["enabled"]
-
+                        OPEN_TIME[option][name]["open"]=active["enabled"]
+            except:
+                pass
                 
         #for digital
         digital_data=self.get_digital_underlying_list_data()["underlying"]
