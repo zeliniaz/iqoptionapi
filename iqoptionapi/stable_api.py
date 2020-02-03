@@ -798,7 +798,7 @@ class IQ_Option:
         return False
     #thank thiagottjv 
     #https://github.com/Lu-Yi-Hsun/iqoptionapi/issues/65#issuecomment-513998357
-    def buy_digital_spot(self, active,amount, action, duration):
+    def buy_digital_spot(self, active,amount, action, duration, user_balance_id=None):
         #Expiration time need to be formatted like this: YYYYMMDDHHII
         #And need to be on GMT time
        
@@ -826,7 +826,7 @@ class IQ_Option:
         instrument_id = "do" + active + dateFormated + "PT" + str(duration) + "M" + action + "SPT" 
         self.api.digital_option_placed_id=None
          
-        self.api.place_digital_option(instrument_id,amount)
+        self.api.place_digital_option(instrument_id,amount,user_balance_id)
         while self.api.digital_option_placed_id==None:
             pass
 
