@@ -19,7 +19,7 @@ def nested_dict(n, type):
 
 
 class IQ_Option:
-    __version__ = "5.0"
+    __version__ = "5.1"
 
     def __init__(self, email, password):
         self.size = [1, 5, 10, 15, 30, 60, 120, 300, 600, 900, 1800,
@@ -1188,3 +1188,7 @@ class IQ_Option:
             return True, self.api.overnight_fee["msg"]
         else:
             return False, None
+    def get_option_open_by_other_pc(self):
+        return self.api.socket_option_opened
+    def del_option_open_by_other_pc(self,id):
+        del self.api.socket_option_opened[id]
