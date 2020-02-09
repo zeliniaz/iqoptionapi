@@ -23,7 +23,7 @@ class Sell_Digital_Option(Base):
                 data = {"name":"digital-options.close-position",
                         "version":"1.0",
                         "body":{
-                                "position_id":(position_ids)
+                                "position_id":position_ids
                                 }
                         }
                         
