@@ -191,14 +191,13 @@ class WebsocketClient(object):
             self.api.order_canceled=message
         elif message["name"]=="position-closed":
             self.api.close_position_data=message
+            self.api.sold_digital_options_respond=message
         elif message["name"]=="overnight-fee":
             self.api.overnight_fee=message
         elif message["name"]=="api_game_getoptions_result":
             self.api.api_game_getoptions_result=message
         elif message["name"]=="sold-options":
-            self.api.sold_options_respond=message
-        elif message["name"]=="position-closed":
-            self.api.sold_digital_options_respond=message
+            self.api.sold_options_respond=message            
         elif message["name"]=="tpsl-changed":
             self.api.tpsl_changed_respond=message
         elif message["name"]=="position-changed":
