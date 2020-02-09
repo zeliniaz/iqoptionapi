@@ -26,5 +26,5 @@ class Sell_Digital_Option(Base):
                                 "position_id":position_ids
                                 }
                         }
-                        
-        self.send_websocket_request(self.name, data)
+        request_id = int(str(time.time()).split('.')[1])
+        self.send_websocket_request(self.name, data, request_id)
