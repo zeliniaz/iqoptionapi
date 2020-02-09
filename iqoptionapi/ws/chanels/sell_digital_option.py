@@ -8,7 +8,7 @@ class Sell_Digital_Option(Base):
         """ 
         :param options_ids: list or int
         """
-        if type(position_ids) != list:
+        if type(position_ids) == list:
                 id_list=[]
                 id_list.append(position_ids)
                 position_ids=id_list
