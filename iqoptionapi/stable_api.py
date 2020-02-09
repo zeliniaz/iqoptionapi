@@ -713,6 +713,13 @@ class IQ_Option:
         while self.api.sold_options_respond == None:
             pass
         return self.api.sold_options_respond
+
+    def sell_digital_option(self, options_ids):
+        self.api.sell_digital_option(options_ids)
+        self.api.sold_digital_options_respond = None
+        while self.api.sold_digital_options_respond == None:
+            pass
+        return self.api.sold_digital_options_respond
 # __________________for Digital___________________
     def get_digital_underlying_list_data(self):
         self.api.underlying_list_data=None
