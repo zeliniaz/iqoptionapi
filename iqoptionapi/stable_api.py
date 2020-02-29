@@ -21,7 +21,7 @@ def nested_dict(n, type):
 class IQ_Option:
     __version__ = "5.1"
 
-    def __init__(self, email, password):
+    def __init__(self, email, password, active_account_type="PRACTIC"):
         self.size = [1, 5, 10, 15, 30, 60, 120, 300, 600, 900, 1800,
                      3600, 7200, 14400, 28800, 43200, 86400, 604800, 2592000]
         self.email = email
@@ -38,6 +38,7 @@ class IQ_Option:
         #
         self.max_reconnect = 5
         self.connect_count = 0
+        self.active_account_type = active_account_type
         # --start
         self.connect()
         # self.update_ACTIVES_OPCODE() this auto function delay too long
@@ -61,9 +62,12 @@ class IQ_Option:
                 self.api = IQOptionAPI(
                     "iqoption.com", self.email, self.password)
                 check = None
-                 
+                self.api.set_active_account_type(self.active_account_type)
                 check = self.api.connect()
                  
+                while self.api.profile.balance_id == None:
+                    pass
+
                 if check == True:
                     # -------------reconnect subscribe_candle
                     try:
@@ -319,88 +323,43 @@ class IQ_Option:
                 self.connect()
 
     def get_balance_id(self):
-        self.api.profile.balance_id = None
-        while True:
-            try:
-                respon = self.get_profile()
-                self.api.profile.balance_id = respon["result"]["balance_id"]
-                break
-            except:
-                logging.error('**error** get_balance()')
-
-            time.sleep(self.suspend)
-        return self.api.profile.balance
+        return self.api.profile.balance_id
 
     def get_balance(self):
-        self.api.profile.balance = None
-        while True:
-            try:
-                respon = self.get_profile()
-                self.api.profile.balance = respon["result"]["balance"]
-                break
-            except:
-                logging.error('**error** get_balance()')
-
-            time.sleep(self.suspend)
         return self.api.profile.balance
 
     def get_balances(self):
-        # self.api.profile.balance=None
-        while True:
-            try:
-                respon = self.get_profile()
-                self.api.profile.balances = respon["result"]["balances"]
-                break
-            except:
-                logging.error('**error** get_balances()')
-                pass
-            time.sleep(self.suspend)
         return self.api.profile.balances
 
     def get_balance_mode(self):
-        # self.api.profile.balance_type=None
-        while True:
-            try:
-                respon = self.get_profile()
-                self.api.profile.balance_type = respon["result"]["balance_type"]
-                break
-            except:
-                logging.error('**error** get_balance_mode()')
-                pass
-            time.sleep(self.suspend)
         if self.api.profile.balance_type == 1:
             return "REAL"
         elif self.api.profile.balance_type == 4:
             return "PRACTICE"
+    
     def reset_practice_balance(self):
         self.api.training_balance_reset_request=None
         self.api.reset_training_balance()
         while self.api.training_balance_reset_request==None:
             pass
         return self.api.training_balance_reset_request
-    def change_balance(self, Balance_MODE):
-        real_id = None
-        practice_id = None
-        while True:
-            try:
-                self.get_balances()
-                for accunt in self.api.profile.balances:
-                    if accunt["type"] == 1:
-                        real_id = accunt["id"]
-                    if accunt["type"] == 4:
-                        practice_id = accunt["id"]
-                break
-            except:
-                logging.error('**error** change_balance()')
-                pass
-        while self.get_balance_mode() != Balance_MODE:
-            if Balance_MODE == "REAL":
-                self.api.changebalance(real_id)
-            elif Balance_MODE == "PRACTICE":
-                self.api.changebalance(practice_id)
-            else:
-                logging.error("ERROR doesn't have this mode")
-                exit(1)
+
+    def change_balance(self, balance_mode):
+        
+        active_balance_code = 1
+        new_active_balance_id=None
+
+        if balance_mode.upper() != "REAL":
+            active_balance_code = 4
+
+        for accunt in self.api.profile.balances:
+            if accunt["type"] == active_balance_code:
+                new_active_balance_id = accunt["id"]
+
+        while self.api.profile.balance_type != new_active_balance_id:
+            self.api.changebalance(new_active_balance_id)
+
+        return new_active_balance_id
 # ________________________________________________________________________
 # _______________________        CANDLE      _____________________________
 # ________________________self.api.getcandles() wss________________________
