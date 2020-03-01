@@ -34,6 +34,35 @@ make a pull request to send me your contribution
 
 [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.me/iqoptionapi)
 
+## last update:2020/02/29
+
+### Version: 5.1.1
+
+#### fix change_balance
+
+```python
+from iqoptionapi.stable_api import IQ_Option
+email = "your@mail.ocm"
+password = "your_password"
+account_mode = "real" # real/practic
+
+I_want_money = IQ_Option(email,password, account_mode)
+
+balance_id = I_want_money.change_balance("practic")
+
+```
+#### Add option balance_mode on create IQ_Option objetct.
+
+```python
+from iqoptionapi.stable_api import IQ_Option
+email = "your@mail.ocm"
+password = "your_password"
+account_mode = "real" # real/practic
+
+I_want_money = IQ_Option(email,password, account_mode)
+
+```
+
 last update:2019/11/22
 
 Version:5.1
