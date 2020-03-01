@@ -15,6 +15,7 @@ class Profile(Base):
         self.__msg=None
         self.__currency=None
         self.__minimum_amount=1
+        self.__balance_type=None
 
     @property
     def skey(self):

@@ -345,21 +345,16 @@ class IQ_Option:
         return self.api.training_balance_reset_request
 
     def change_balance(self, balance_mode):
+        """
+            Change the balance mode and return a new balance_id
+        """
+        self.active_account_type = balance_mode
+        self.connect()
         
-        active_balance_code = 1
-        new_active_balance_id=None
+        while self.api.profile.balance_type != self.api.get_active_account_type():
+            pass
+        return self.api.profile.balance_id
 
-        if balance_mode.upper() != "REAL":
-            active_balance_code = 4
-
-        for accunt in self.api.profile.balances:
-            if accunt["type"] == active_balance_code:
-                new_active_balance_id = accunt["id"]
-
-        while self.api.profile.balance_type != new_active_balance_id:
-            self.api.changebalance(new_active_balance_id)
-
-        return new_active_balance_id
 # ________________________________________________________________________
 # _______________________        CANDLE      _____________________________
 # ________________________self.api.getcandles() wss________________________

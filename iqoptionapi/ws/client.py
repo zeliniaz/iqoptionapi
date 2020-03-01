@@ -100,22 +100,22 @@ class WebsocketClient(object):
                         pass
                     
                     try:
-                        self.api.profile.balance_id=balance["id"]
+                        self.api.profile.balance_id = balance["id"]
                     except:
                         pass
                     
                     try:
-                        self.api.profile.balance_type=balance["type"]
+                        self.api.profile.balance_type = balance["type"]
                     except:
                         pass
                     
                     try:
-                        self.api.profile.currency=balance["currency"]
+                        self.api.profile.currency = balance["currency"]
                     except:
                         pass
 
             try:
-                self.api.profile.balances=message["msg"]["balances"]
+                self.api.profile.balances = message["msg"]["balances"]
             except:
                 pass
 
