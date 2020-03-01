@@ -91,25 +91,51 @@ class WebsocketClient(object):
             #--------------all-------------
             self.api.profile.msg=message["msg"]
             #---------------------------
+
+            for balance in message["msg"]["balances"]:
+                if self.api.get_active_account_type() == balance['type']:
+                    try:
+                        self.api.profile.balance = balance["amount"]
+                    except:
+                        pass
+                    
+                    try:
+                        self.api.profile.balance_id = balance["id"]
+                    except:
+                        pass
+                    
+                    try:
+                        self.api.profile.balance_type = balance["type"]
+                    except:
+                        pass
+                    
+                    try:
+                        self.api.profile.currency = balance["currency"]
+                    except:
+                        pass
+
             try:
-                self.api.profile.balance = message["msg"]["balance"]
-            except:
-                pass
-            
-            try:
-                self.api.profile.balance_id=message["msg"]["balance_id"]
-            except:
-                pass
-            
-            try:
-                self.api.profile.balance_type=message["msg"]["balance_type"]
+                self.api.profile.balances = message["msg"]["balances"]
             except:
                 pass
 
-            try:
-                self.api.profile.balances=message["msg"]["balances"]
-            except:
-                pass
+        elif message['name'] == 'balance-changed':
+            balance = message['msg']['current_balance']
+            if self.api.get_active_account_type() == balance['type']:
+                try:
+                    self.api.profile.balance = balance["amount"]
+                except:
+                    pass
+                
+                try:
+                    self.api.profile.balance_id = balance["id"]
+                except:
+                    pass
+                
+                try:
+                    self.api.profile.balance_type = balance["type"]
+                except:
+                    pass
 
         elif message["name"] == "candles":
             try:

@@ -13,7 +13,9 @@ class Profile(Base):
         self.__balance_id=None
         self.__balances=None
         self.__msg=None
- 
+        self.__currency=None
+        self.__minimum_amount=1
+        self.__balance_type=None
 
     @property
     def skey(self):
@@ -91,3 +93,18 @@ class Profile(Base):
     @msg.setter
     def msg(self, msg):
         self.__msg = msg
+
+#------------
+    @property
+    def currency(self):
+        return self.__currency
+    
+    @currency.setter
+    def currency(self, currency):
+        self.__currency = currency
+        if self.__currency.upper() == "BRL":
+            self.__minimum_amount = 2
+
+    @property
+    def minimum_amount(self):
+        return self.__minimum_amount

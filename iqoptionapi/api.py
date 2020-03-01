@@ -154,6 +154,7 @@ class IQOptionAPI(object):  # pylint: disable=too-many-instance-attributes
         # If it is false, the last failed
         # If it is true, the last buy order was successful
         self.buy_successful = None
+        self.__active_account_type=None
 
     def prepare_http_url(self, resource):
         """Construct http url from resource url.
@@ -671,3 +672,11 @@ class IQOptionAPI(object):  # pylint: disable=too-many-instance-attributes
 
     def websocket_alive(self):
         return self.websocket_thread.is_alive()
+
+    def get_active_account_type(self):
+        return self.__active_account_type
+    
+    def set_active_account_type(self, active_account_type):
+        self.__active_account_type = 1
+        if active_account_type.upper() != "REAL":
+            self.__active_account_type = 4
