@@ -91,25 +91,62 @@ class WebsocketClient(object):
             #--------------all-------------
             self.api.profile.msg=message["msg"]
             #---------------------------
+
+            for balance in message["msg"]["balances"]:
+                if self.api.get_active_account_type() == balance['type']:
+                    try:
+                        self.api.profile.balance = balance["amount"]
+                    except:
+                        pass
+                    
+                    try:
+                        self.api.profile.balance_id = balance["id"]
+                    except:
+                        pass
+                    
+                    try:
+                        self.api.profile.balance_type = balance["type"]
+                    except:
+                        pass
+                    
+                    try:
+                        self.api.profile.currency = balance["currency"]
+                    except:
+                        pass
+
             try:
-                self.api.profile.balance = message["msg"]["balance"]
+                self.api.profile.balances = message["msg"]["balances"]
             except:
                 pass
             
             try:
-                self.api.profile.balance_id=message["msg"]["balance_id"]
-            except:
-                pass
-            
-            try:
-                self.api.profile.balance_type=message["msg"]["balance_type"]
+                self.api.profile.currency_char = message["msg"]["currency_char"]
             except:
                 pass
 
             try:
-                self.api.profile.balances=message["msg"]["balances"]
+                self.api.profile.time_zone = message["msg"]["tz_offset"]
             except:
                 pass
+
+
+        elif message['name'] == 'balance-changed':
+            balance = message['msg']['current_balance']
+            if self.api.get_active_account_type() == balance['type']:
+                try:
+                    self.api.profile.balance = balance["amount"]
+                except:
+                    pass
+                
+                try:
+                    self.api.profile.balance_id = balance["id"]
+                except:
+                    pass
+                
+                try:
+                    self.api.profile.balance_type = balance["type"]
+                except:
+                    pass
 
         elif message["name"] == "candles":
             try:
@@ -191,12 +228,13 @@ class WebsocketClient(object):
             self.api.order_canceled=message
         elif message["name"]=="position-closed":
             self.api.close_position_data=message
+            self.api.sold_digital_options_respond=message
         elif message["name"]=="overnight-fee":
             self.api.overnight_fee=message
         elif message["name"]=="api_game_getoptions_result":
             self.api.api_game_getoptions_result=message
         elif message["name"]=="sold-options":
-            self.api.sold_options_respond=message
+            self.api.sold_options_respond=message            
         elif message["name"]=="tpsl-changed":
             self.api.tpsl_changed_respond=message
         elif message["name"]=="position-changed":
