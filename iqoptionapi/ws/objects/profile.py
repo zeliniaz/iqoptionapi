@@ -16,6 +16,8 @@ class Profile(Base):
         self.__currency=None
         self.__minimum_amount=1
         self.__balance_type=None
+        self.__currency_char=None
+        self.__time_zone=-3
 
     @property
     def skey(self):
@@ -108,3 +110,19 @@ class Profile(Base):
     @property
     def minimum_amount(self):
         return self.__minimum_amount
+#------------
+    @property
+    def currency_char(self):
+        return self.__currency_char
+
+    @currency_char.setter
+    def currency_char(self, currency_char):
+        self.__currency_char = currency_char
+#------------
+    @property
+    def time_zone(self):
+        return self.__time_zone
+
+    @time_zone.setter
+    def time_zone(self, time_zone):
+        self.__time_zone = int(time_zone/60)

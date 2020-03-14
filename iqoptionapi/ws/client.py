@@ -118,6 +118,17 @@ class WebsocketClient(object):
                 self.api.profile.balances = message["msg"]["balances"]
             except:
                 pass
+            
+            try:
+                self.api.profile.currency_char = message["msg"]["currency_char"]
+            except:
+                pass
+
+            try:
+                self.api.profile.time_zone = message["msg"]["tz_offset"]
+            except:
+                pass
+
 
         elif message['name'] == 'balance-changed':
             balance = message['msg']['current_balance']
