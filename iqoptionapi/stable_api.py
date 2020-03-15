@@ -64,11 +64,10 @@ class IQ_Option:
                 check = None
                 self.api.set_active_account_type(self.active_account_type)
                 check = self.api.connect()
-                 
-                while self.api.profile.balance_id == None:
-                    pass
 
                 if check == True:
+                    while self.api.profile.balance_id == None:
+                        pass
                     # -------------reconnect subscribe_candle
                     try:
                         for ac in self.subscribe_candle:
@@ -102,8 +101,7 @@ class IQ_Option:
                 time.sleep(self.suspend*2)
                 self.connect_count = self.connect_count+1
             else:
-                logging.error(
-                    '**error** reconnect() too many time please look log file')
+                logging.error('**error** reconnect() too many time please look log file')
                 exit(1)
 
     def check_connect(self):
