@@ -1,98 +1,59 @@
 # IQ Option API
 
-## How to contribute:
+[PORTUGUESE VERSION](docs/pt-br/README.md)
+[SPANISH VERSION](docs/es/README.md)
 
-## last update:2020/02/29
+This api is based on [Lu-Yi-Hsun](https://github.com/Lu-Yi-Hsun/iqoptionapi/)
 
-### Version: 5.1.1
+Thanks also for [this version](https://github.com/evecimar/iqoptionapi) he fixed some bugs.
 
-#### fix change_balance
+It was not been updated by him.
+So I decided to study and do this work.
+I don't know how all works yet but I'll learn and teach you
+
+## Summary
+
+- [Contribute with Community](#contribe)
+- [Python version 3.7](#pythonversion)
+- [How to start](#howtostart)
+
+<div id='contribe'/>
+
+## Contribute with Community
+
+Help me to keep this project working. Open relevant issues and give a hand to fix the bug.
+I'll start a channel on youtube in future as soon as possible to share how I'm working with this project.
+The channel will be in portuguese but you can help with subtitles.
+
+I'll do lives on twitch to work together with you. And if you enjoy it and could contribute with any donation it will be welcome.
+
+If something is not clear on documentation let me know and I'll try to explain what I know.
+
+Please send me suggestions ... feedbacks are welcome
+
+<div id='pythonversion'/>
+
+### PYTHON VERSION
+
+I'm using this tools anaconda with python 3.7 with contains a lot of libs pre-installed
+
+<div id='howtostart'/>
+
+## How to start
+
+You must have python installed version 3.7 or higher
+
+then you must have websocket-client installed on your project
 
 ```python
-from iqoptionapi.stable_api import IQ_Option
-email = "your@mail.ocm"
-password = "your_password"
-account_mode = "real" # real/practic
-
-Iq = IQ_Option(email,password, account_mode)
-
-balance_id = Iq.change_balance("practic")
-
+pip install websocket-client==0.56
 ```
 
-#### Add option balance_mode on create IQ_Option objetct.
+Now you can install this project as library:
 
-```python
-from iqoptionapi.stable_api import IQ_Option
-email = "your@mail.ocm"
-password = "your_password"
-account_mode = "real" # real/practic
-
-Iq = IQ_Option(email,password, account_mode)
-
+```bash
+sudo pip install -U git+git://github.com/iqoptionapi/iqoptionapi.git
 ```
-
-last update:2019/11/22
-
-Version:5.1
-add[get_option_open_by_other_pc](#getoptionopenbyotherpc) api
-
-Version:5.0
-
-please donate >< get_digital_spot_profit_after_sale pay me lot of time
-
-https://github.com/Lu-Yi-Hsun/iqoptionapi/issues/125
-
-add [get_digital_spot_profit_after_sale](#getdigitalspotprofitaftersale) api
-
-Version:4.5
-
-add [get_remaning](#getremaning) api
-
-Version:4.4
-
-fix check_win_digital(check_win_digital(Synchronous message) and check_win_digital_v2(Asynchronous messages) are different implement way)
-
-add get_digital_position()
-
-Version:4.3
-
-add subscribe_top_assets_updated & popularity
-https://github.com/Lu-Yi-Hsun/iqoptionapi/issues/131
-
-Version:4.2
-
-add reconnect sample
-add get_async_order api
-
-Version:4.0.1
-
-fix get_positions()
-https://github.com/Lu-Yi-Hsun/iqoptionapi/issues/132
-
-add get_optioninfo_v2
-
-Version:4.0.0
-
-:exclamation::exclamation::exclamation:
-update websocket-client==0.56
-:exclamation:
-please uninstall all websocket-client and update up websocket-client==0.56
-
-```
-sudo pip uninstall websocket-client
-sudo pip install websocket-client==0.56
-```
-
-:exclamation:
-
----
-
-## About API
-
-only support US Dollar account
-
-https://github.com/Lu-Yi-Hsun/iqoptionapi/issues/73#issue-406537365
 
 ```python
 #hight level api ,This api is write base on ""iqoptionapi.api" for more easy
@@ -133,22 +94,6 @@ fix way
 ```bash
 sudo pip3 uninstall websocket
 sudo pip3 install websocket-client==0.47.0
-```
-
----
-
-## Installation & GET new version
-
-For Python3
-
-```bash
-sudo pip3 install -U git+git://github.com/Lu-Yi-Hsun/iqoptionapi.git
-```
-
-For Python2
-
-```bash
-sudo pip2 install -U git+git://github.com/Lu-Yi-Hsun/iqoptionapi.git
 ```
 
 ---
