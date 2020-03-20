@@ -33,18 +33,19 @@ from iqoptionapi.ws.chanels.strike_list import Strike_list
 
 from iqoptionapi.ws.chanels.traders_mood import Traders_mood_subscribe
 from iqoptionapi.ws.chanels.traders_mood import Traders_mood_unsubscribe
+from iqoptionapi.ws.chanels.technical_indicators import Technical_indicators
 from iqoptionapi.ws.chanels.buy_place_order_temp import Buy_place_order_temp
 from iqoptionapi.ws.chanels.get_order import Get_order
 from iqoptionapi.ws.chanels.get_deferred_orders import GetDeferredOrders
 from iqoptionapi.ws.chanels.get_positions import *
- 
+
 from iqoptionapi.ws.chanels.get_available_leverages import Get_available_leverages
 from iqoptionapi.ws.chanels.cancel_order import Cancel_order
 from iqoptionapi.ws.chanels.close_position import Close_position
 from iqoptionapi.ws.chanels.get_overnight_fee import Get_overnight_fee
 from iqoptionapi.ws.chanels.heartbeat import Heartbeat
 
- 
+
 from iqoptionapi.ws.chanels.digital_option import *
 from iqoptionapi.ws.chanels.api_game_getoptions import *
 from iqoptionapi.ws.chanels.sell_option import Sell_Option
@@ -98,6 +99,7 @@ class IQOptionAPI(object):  # pylint: disable=too-many-instance-attributes
     buy_id = None
     buy_order_id = None
     traders_mood = {}  # get hight(put) %
+    technical_indicators = {}
     order_data = None
     positions = None
     position = None
@@ -110,7 +112,7 @@ class IQOptionAPI(object):  # pylint: disable=too-many-instance-attributes
     overnight_fee = None
     # ---for real time
     digital_option_placed_id = None
-    
+
     microserviceName_binary_options_name_option={}
 
     real_time_candles = nested_dict(3, dict)
@@ -381,6 +383,13 @@ class IQOptionAPI(object):  # pylint: disable=too-many-instance-attributes
         return Traders_mood_unsubscribe(self)
 
 # --------------------------------------------------------------------------------
+# tecnical indicators
+
+    @property
+    def get_Technical_indicators(self):
+        return Technical_indicators(self)
+
+# --------------------------------------------------------------------------------
 # --------------------------subscribe&unsubscribe---------------------------------
 # --------------------------------------------------------------------------------
     @property
@@ -440,7 +449,7 @@ class IQOptionAPI(object):  # pylint: disable=too-many-instance-attributes
 
         logger.debug(data)
         self.websocket.send(data)
-    
+
     @property
     def Subscribe_Top_Assets_Updated(self):
         return Subscribe_top_assets_updated(self)
@@ -521,7 +530,7 @@ class IQOptionAPI(object):  # pylint: disable=too-many-instance-attributes
     @property
     def sell_option(self):
         return Sell_Option(self)
-    
+
     @property
     def sell_digital_option(self):
         return Sell_Digital_Option(self)
@@ -675,7 +684,7 @@ class IQOptionAPI(object):  # pylint: disable=too-many-instance-attributes
 
     def get_active_account_type(self):
         return self.__active_account_type
-    
+
     def set_active_account_type(self, active_account_type):
         self.__active_account_type = 1
         if active_account_type.upper() != "REAL":

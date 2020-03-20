@@ -7,7 +7,7 @@ import iqoptionapi.constants as OP_code
 import iqoptionapi.global_value as global_value
 
 
-                
+
 class WebsocketClient(object):
     """Class for work with IQ option websocket."""
 
@@ -35,7 +35,7 @@ class WebsocketClient(object):
                     break
                 else:
                     #del mini key
-                    del dict[key1][key2][sorted(dict[key1][key2].keys(), reverse=False)[0]]   
+                    del dict[key1][key2][sorted(dict[key1][key2].keys(), reverse=False)[0]]
     def on_message(self, message): # pylint: disable=unused-argument
         """Method to process websocket messages."""
         logger = logging.getLogger(__name__)
@@ -49,8 +49,8 @@ class WebsocketClient(object):
         #---------------------for_realtime_candle______________
         #######################################################
         elif message["name"] == "candle-generated":
-            Active_name=list(OP_code.ACTIVES.keys())[list(OP_code.ACTIVES.values()).index(message["msg"]["active_id"])]            
-            
+            Active_name=list(OP_code.ACTIVES.keys())[list(OP_code.ACTIVES.values()).index(message["msg"]["active_id"])]
+
             active=str(Active_name)
             size=int(message["msg"]["size"])
             from_=int(message["msg"]["from"])
@@ -59,12 +59,12 @@ class WebsocketClient(object):
 
             self.dict_queue_add(self.api.real_time_candles,maxdict,active,size,from_,msg)
             self.api.candle_generated_check[active][size]=True
-            
+
         elif message["name"]=="options":
             self.api.get_options_v2_data=message
         elif message["name"] == "candles-generated":
-            Active_name=list(OP_code.ACTIVES.keys())[list(OP_code.ACTIVES.values()).index(message["msg"]["active_id"])] 
-            active=str(Active_name)      
+            Active_name=list(OP_code.ACTIVES.keys())[list(OP_code.ACTIVES.values()).index(message["msg"]["active_id"])]
+            active=str(Active_name)
             for k,v in message["msg"]["candles"].items():
                 v["active_id"]=message["msg"]["active_id"]
                 v["at"]=message["msg"]["at"]
@@ -77,8 +77,8 @@ class WebsocketClient(object):
                 maxdict=self.api.real_time_candles_maxdict_table[Active_name][size]
                 msg=v
                 self.dict_queue_add(self.api.real_time_candles,maxdict,active,size,from_,msg)
-            self.api.candle_generated_all_size_check[active]=True 
-                
+            self.api.candle_generated_all_size_check[active]=True
+
         #######################################################
         #______________________________________________________
         #######################################################
@@ -98,17 +98,17 @@ class WebsocketClient(object):
                         self.api.profile.balance = balance["amount"]
                     except:
                         pass
-                    
+
                     try:
                         self.api.profile.balance_id = balance["id"]
                     except:
                         pass
-                    
+
                     try:
                         self.api.profile.balance_type = balance["type"]
                     except:
                         pass
-                    
+
                     try:
                         self.api.profile.currency = balance["currency"]
                     except:
@@ -118,7 +118,7 @@ class WebsocketClient(object):
                 self.api.profile.balances = message["msg"]["balances"]
             except:
                 pass
-            
+
             try:
                 self.api.profile.currency_char = message["msg"]["currency_char"]
             except:
@@ -137,12 +137,12 @@ class WebsocketClient(object):
                     self.api.profile.balance = balance["amount"]
                 except:
                     pass
-                
+
                 try:
                     self.api.profile.balance_id = balance["id"]
                 except:
                     pass
-                
+
                 try:
                     self.api.profile.balance_type = balance["type"]
                 except:
@@ -170,14 +170,14 @@ class WebsocketClient(object):
         #buy_multi_option
         elif message["name"] == "option":
             self.api.buy_multi_option[int(message["request_id"])] = message["msg"]
-        #**********************************************************   
+        #**********************************************************
         elif message["name"] == "listInfoData":
            for get_m in message["msg"]:
                self.api.listinfodata.set(get_m["win"],get_m["game_state"],get_m["id"])
         elif message["name"] == "socket-option-opened":
             id=message["msg"]["id"]
             self.api.socket_option_opened[id]=message
-             
+
         elif message["name"] == "api_option_init_all_result":
             self.api.api_option_init_all_result = message["msg"]
         elif message["name"] == "initialization-data":
@@ -196,7 +196,7 @@ class WebsocketClient(object):
             self.api.microserviceName_binary_options_name_option[int(message["msg"]["option_id"])]=message
         elif message["name"]=="top-assets-updated":
             self.api.top_assets_updated_data[str(message["msg"]["instrument_type"])]=message["msg"]["data"]
-        elif message["name"]=="strike-list":  
+        elif message["name"]=="strike-list":
             self.api.strike_list=message
         elif message["name"]=="api_game_betinfo_result":
             try:
@@ -218,6 +218,14 @@ class WebsocketClient(object):
         elif message["name"]=="deferred-orders":
             self.api.deferred_orders=message
 
+        elif message["name"] =="technical-indicators":
+            if message["msg"].get("indicators") != None:
+                self.api.technical_indicators[message["request_id"]] = message["msg"]["indicators"]
+            else:
+                self.api.technical_indicators[message["request_id"]] =  {
+                    "code": "no_technical_indicator_available",
+                    "message":message["msg"]["message"]
+                }
         elif message["name"]=="position-history":
             self.api.position_history=message
         elif message["name"]=="history-positions":
@@ -234,7 +242,7 @@ class WebsocketClient(object):
         elif message["name"]=="api_game_getoptions_result":
             self.api.api_game_getoptions_result=message
         elif message["name"]=="sold-options":
-            self.api.sold_options_respond=message            
+            self.api.sold_options_respond=message
         elif message["name"]=="tpsl-changed":
             self.api.tpsl_changed_respond=message
         elif message["name"]=="position-changed":
@@ -249,9 +257,9 @@ class WebsocketClient(object):
         elif message["name"]=="result":
             self.api.result=message["msg"]["success"]
         elif message["name"]=="instrument-quotes-generated":
-             
-            Active_name=list(OP_code.ACTIVES.keys())[list(OP_code.ACTIVES.values()).index(message["msg"]["active"])]  
-            period=message["msg"]["expiration"]["period"] 
+
+            Active_name=list(OP_code.ACTIVES.keys())[list(OP_code.ACTIVES.values()).index(message["msg"]["active"])]
+            period=message["msg"]["expiration"]["period"]
             ans={}
             for data in message["msg"]["quotes"]:
                 #FROM IQ OPTION SOURCE CODE
@@ -261,7 +269,7 @@ class WebsocketClient(object):
                 else:
                     askPrice=(float)(data["price"]["ask"])
                     ProfitPercent=((100-askPrice)*100)/askPrice
-                
+
                 for symble in data["symbols"]:
                     try:
                         """
@@ -281,9 +289,9 @@ class WebsocketClient(object):
             self.api.instrument_quotes_generated_raw_data[Active_name][period]=message
         elif message["name"]=="training-balance-reset":
             self.api.training_balance_reset_request=message["msg"]["isSuccessful"]
- 
-            
-    
+
+
+
     @staticmethod
     def on_error(wss, error): # pylint: disable=unused-argument
         """Method to process websocket errors."""

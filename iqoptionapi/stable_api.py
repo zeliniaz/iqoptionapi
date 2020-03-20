@@ -31,6 +31,7 @@ class IQ_Option:
         self.subscribe_candle = []
         self.subscribe_candle_all_size = []
         self.subscribe_mood = []
+        self.subscribe_indicators = []
         # for digit
         self.get_digital_spot_profit_after_sale_data=nested_dict(2,int)
         self.get_realtime_strike_list_temp_data = {}
@@ -548,6 +549,17 @@ class IQ_Option:
     def get_all_traders_mood(self):
         # return highter %
         return self.api.traders_mood
+
+##############################################################################################
+
+    # -----------------technical_indicators----------------------
+
+    def get_technical_indicators(self, ACTIVES):
+        request_id = self.api.get_Technical_indicators(OP_code.ACTIVES[ACTIVES])
+        while self.api.technical_indicators.get(request_id) == None:
+            pass
+        return self.api.technical_indicators[request_id]
+
 ##############################################################################################
 
     def check_win(self, id_number):
