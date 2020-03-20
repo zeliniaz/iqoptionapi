@@ -33,8 +33,7 @@ from iqoptionapi.ws.chanels.strike_list import Strike_list
 
 from iqoptionapi.ws.chanels.traders_mood import Traders_mood_subscribe
 from iqoptionapi.ws.chanels.traders_mood import Traders_mood_unsubscribe
-from iqoptionapi.ws.chanels.technical_indicators import Technical_indicators_subscribe
-from iqoptionapi.ws.chanels.technical_indicators import Technical_indicators_unsubscribe
+from iqoptionapi.ws.chanels.technical_indicators import Technical_indicators
 from iqoptionapi.ws.chanels.buy_place_order_temp import Buy_place_order_temp
 from iqoptionapi.ws.chanels.get_order import Get_order
 from iqoptionapi.ws.chanels.get_deferred_orders import GetDeferredOrders
@@ -387,12 +386,8 @@ class IQOptionAPI(object):  # pylint: disable=too-many-instance-attributes
 # tecnical indicators
 
     @property
-    def subscribe_Technical_indicators(self):
-        return Technical_indicators_subscribe(self)
-
-    @property
-    def unsubscribe_Tecnical_indicators(self):
-        return Technical_indicators_unsubscribe(self)
+    def get_Technical_indicators(self):
+        return Technical_indicators(self)
 
 # --------------------------------------------------------------------------------
 # --------------------------subscribe&unsubscribe---------------------------------
