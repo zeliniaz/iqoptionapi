@@ -552,16 +552,16 @@ class IQ_Option:
 
 ##############################################################################################
 
-        # -----------------technical_indicators----------------------
+    # -----------------technical_indicators----------------------
 
-        def get_technical_indicators(self, ACTIVES):
-            request_id = self.api.subscribe_Technical_indicators(OP_code.ACTIVES[ACTIVES])
-            while hasattr(self.api.technical_indicators, request_id) == False:
-                pass
-            self.api.unsubscribe_Technical_indicators(OP_code.ACTIVES[ACTIVES])
-            return self.api.technical_indicators[request_id]
+    def get_technical_indicators(self, ACTIVES):
+        request_id = self.api.subscribe_Technical_indicators(OP_code.ACTIVES[ACTIVES])
+        while hasattr(self.api.technical_indicators, request_id) == False:
+            pass
+        self.api.unsubscribe_Technical_indicators(OP_code.ACTIVES[ACTIVES])
+        return self.api.technical_indicators[request_id]
 
-    ##############################################################################################
+##############################################################################################
 
     def check_win(self, id_number):
         # 'win':win money 'equal':no win no loose   'loose':loose money
