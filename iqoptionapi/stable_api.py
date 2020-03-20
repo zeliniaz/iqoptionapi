@@ -556,7 +556,7 @@ class IQ_Option:
 
     def get_technical_indicators(self, ACTIVES):
         request_id = self.api.subscribe_Technical_indicators(OP_code.ACTIVES[ACTIVES])
-        while hasattr(self.api.technical_indicators, request_id) == False:
+        while hasattr(self.api.technical_indicators, str(request_id)) == False:
             pass
         self.api.unsubscribe_Technical_indicators(OP_code.ACTIVES[ACTIVES])
         return self.api.technical_indicators[request_id]
