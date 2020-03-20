@@ -219,8 +219,13 @@ class WebsocketClient(object):
             self.api.deferred_orders=message
 
         elif message["name"] =="technical-indicators":
-            self.api.technical_indicators[message["request_id"]] = message["msg"]["indicators"]
-
+            if message["msg"].get("indicators") != None:
+                self.api.technical_indicators[message["request_id"]] = message["msg"]["indicators"]
+            else:
+                self.api.technical_indicators[message["request_id"]] =  {
+                    "code": "no_technical_indicator_available",
+                    "message":message["msg"]["message"]
+                }
         elif message["name"]=="position-history":
             self.api.position_history=message
         elif message["name"]=="history-positions":

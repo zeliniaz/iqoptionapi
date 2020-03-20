@@ -16,6 +16,7 @@ I don't know how all works yet but I'll learn and teach you
 - [Contribute with Community](#contribe)
 - [Python version 3.7](#pythonversion)
 - [How to start](#howtostart)
+- [How to get Technical Indicators](#technicalindicators)
 
 <div id='contribe'/>
 
@@ -1385,6 +1386,28 @@ get all you start mood
 ```python
 Iq.get_all_traders_mood(goal)
 #output:(dict) all mood you start
+```
+
+<div id='technicalindicators'/>
+
+#### How to Get Technical indicators
+
+It get technical indicator from any asset cointains it
+
+```python
+## api auth then
+indicators = Iq.get_technical_indicators(asset)
+print(indicators)
+
+```
+
+if assets doesn't contains technical indicator it returns:
+
+```json
+{
+  "code": "no_technical_indicator_available",
+  "message": "Active is not supported: active id 'ACTIVE_ID_PASSED'"
+}
 ```
 
 ### Account
