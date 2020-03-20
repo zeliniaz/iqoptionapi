@@ -1403,6 +1403,7 @@ It get technical indicator from any asset cointains it
 
 ```python
 ## api auth then
+asset="GBPUSD"
 indicators = Iq.get_technical_indicators(asset)
 print(indicators)
 
