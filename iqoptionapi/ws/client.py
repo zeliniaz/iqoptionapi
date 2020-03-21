@@ -164,12 +164,17 @@ class WebsocketClient(object):
                 self.api.buy_id= message["msg"]["result"]["id"]
             except:
                 pass
-        elif message["name"] == "buyV2_result":
-            self.api.buy_successful = message["msg"]["isSuccessful"]
         #*********************buyv3
         #buy_multi_option
         elif message["name"] == "option":
-            self.api.buy_multi_option[int(message["request_id"])] = message["msg"]
+            if message["status"] == 0:
+                if message['request_id'] == "":  # for buy
+                    self.api.buy_successful = True
+                    self.api.buy_id = message["msg"]["id"]  # for multibuy
+                else:
+                    self.api.buy_multi_option[int(message["request_id"])] = message["msg"]
+            else:
+                print(message["msg"]["message"])
         #**********************************************************
         elif message["name"] == "listInfoData":
            for get_m in message["msg"]:

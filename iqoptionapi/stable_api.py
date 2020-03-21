@@ -270,7 +270,24 @@ class IQ_Option:
 
         return OPEN_TIME
 
-
+    # for faster checking the information reation to option active
+    def check_active_option(self,symbol_name,type_local="turbo"):
+        #for binary option turbo and binary
+        decision_local = False
+        data_values=self.get_all_init_v2()
+        for actives_id in data_values[type_local]["actives"]:
+            active=data_values[type_local]["actives"][actives_id]
+            if symbol_name in str(active["name"]):
+                if active["enabled"]==True:
+                    if active["is_suspended"]==True:
+                        decision_local = False
+                        break
+                    else:
+                        decision_local= True
+                        break
+                else:
+                    decision_local = active["enabled"]
+        return decision_local
 
 # --------for binary option detail
 
@@ -661,13 +678,20 @@ class IQ_Option:
     def buy(self, price, ACTIVES, ACTION, expirations):
         self.api.buy_successful = None
         self.api.buy_id = None
-        self.api.buy(price, OP_code.ACTIVES[ACTIVES], ACTION, expirations)
-        start_t=time.time()
-        while self.api.buy_successful == None and self.api.buy_id == None:
-            if time.time()-start_t>=30:
-                logging.error('**warning** buy late 30 sec')
-                return False,None
-
+        decide_to_go = False
+        if int(expirations) <=5:
+            decide_to_go = self.check_active_option(ACTIVES,"turbo")
+        else:
+            decide_to_go = self.check_active_option(ACTIVES,"binary")
+        if decide_to_go == True:
+            self.api.buy(price, OP_code.ACTIVES[ACTIVES], ACTION, expirations)
+            start_t=time.time()
+            while self.api.buy_successful == None and self.api.buy_id == None:
+                if time.time()-start_t>=30:
+                    logging.error('**warning** buy late 30 sec')
+                    return False,None
+        else:
+            return False,None
         return self.api.buy_successful,self.api.buy_id
 
 
