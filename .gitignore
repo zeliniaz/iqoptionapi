@@ -6,3 +6,4 @@ dist/
 /.vs
 venv/
 .idea
+test.py
