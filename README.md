@@ -8,7 +8,7 @@ NÓS AJUDE A MANTER O PROJETO:<br>
 AYÚDENOS A CONTINUAR EL PROYECTO:
 [
 ![Donate with PayPal](https://raw.githubusercontent.com/iqoptionapi/iqoptionapi/master/docs/paypal-donate-button.png)
-](https://streamelements.com/orafaelfaria/tip)
+](https://bit.ly/ajudeocanaldofaria)
 
 This api is based on [Lu-Yi-Hsun](https://github.com/Lu-Yi-Hsun/iqoptionapi/)
 
