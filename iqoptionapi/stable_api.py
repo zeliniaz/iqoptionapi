@@ -1408,6 +1408,12 @@ class IQ_Option:
             time.sleep(1)
         """
 
+    def set_digital_live_deal_cb(self, cb):
+        self.api.digital_live_deal_cb = cb
+
+    def set_binary_live_deal_cb(self, cb):
+        self.api.binary_live_deal_cb = cb
+
     def get_live_deal(self, name, active, _type):
         return self.api.live_deal_data[name][active][_type]
 

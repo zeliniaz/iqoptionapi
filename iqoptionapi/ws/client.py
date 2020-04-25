@@ -5,6 +5,7 @@ import logging
 import websocket
 import iqoptionapi.constants as OP_code
 import iqoptionapi.global_value as global_value
+from threading import Thread
 
 
 class WebsocketClient(object):
@@ -323,6 +324,13 @@ class WebsocketClient(object):
             try:
                 self.api.live_deal_data[name][active][_type].appendleft(
                     message["msg"])
+                if hasattr(self.api.binary_live_deal_cb, '__call__'):
+                    cb_data = {
+                        "active": active,
+                        **message["msg"]
+                    }
+                    Thread(target=self.api.binary_live_deal_cb,
+                           kwargs=(cb_data)).start()
             except:
                 pass
         elif message["name"] == "live-deal-digital-option":
@@ -334,6 +342,13 @@ class WebsocketClient(object):
             try:
                 self.api.live_deal_data[name][active][_type].appendleft(
                     message["msg"])
+                if hasattr(self.api.digital_live_deal_cb, '__call__'):
+                    cb_data = {
+                        "active": active,
+                        **message["msg"]
+                    }
+                    Thread(target=self.api.digital_live_deal_cb,
+                           kwargs=(cb_data)).start()
             except:
                 pass
 
