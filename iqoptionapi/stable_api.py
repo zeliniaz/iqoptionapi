@@ -300,6 +300,7 @@ class IQ_Option:
 
 # --------for binary option detail
 
+
     def get_binary_option_detail(self):
         detail = nested_dict(2, dict)
         init_info = self.get_all_init()
@@ -334,6 +335,7 @@ class IQ_Option:
 
 
 # ______________________________________self.api.getprofile() https________________________________
+
 
     def get_profile_ansyc(self):
         while self.api.profile.msg == None:
@@ -689,26 +691,31 @@ class IQ_Option:
     def check_win_v2(self, id_number, polling_time):
         while True:
             check, data = self.get_betinfo(id_number)
-            win = data["result"]["data"][str(id_number)]["win"]
-            if check and win != "":
-                try:
+            if check:
+                return data["result"]["data"][str(id_number)]["win"]
+            time.sleep(self.suspend)
 
-                    return data["result"]["data"][str(id_number)]["profit"]-data["result"]["data"][str(id_number)]["deposit"]
-                except:
-                    pass
-            time.sleep(polling_time)
-
-    def check_win_v3(self, id_number):
+        # Function by kkagill ( https://github.com/Lu-Yi-Hsun/iqoptionapi/issues/196 | https://github.com/kkagill )
+        # Function only work with Options!
+    def check_win_v4(self, id_number):
         while True:
             try:
-
-                if self.get_async_order(id_number)["option-closed"] != {}:
+                if self.api.socket_option_closed[id_number] != None:
                     break
             except:
                 pass
+        x = self.api.socket_option_closed[id_number]
+        return x['msg']['win'], (0 if x['msg']['win'] == 'equal' else float(x['msg']['sum']) * -1 if x['msg']['win'] == 'loose' else float(x['msg']['win_amount']) - float(x['msg']['sum']))
 
-        return self.get_async_order(id_number)["option-closed"]["msg"]["profit_amount"]-self.get_async_order(id_number)["option-closed"]["msg"]["amount"]
-
+    # Function by Adenilson ( https://t.me/CardosoSlv )
+        # Function only work with Options!
+    def check_win_v3(self, id_number):
+        while True:
+            result = self.get_optioninfo_v2(10)
+            if result['msg']['closed_options'][0]['id'][0] == id_number and result['msg']['closed_options'][0]['id'][0] != None:
+                return result['msg']['closed_options'][0]['win'], (result['msg']['closed_options'][0]['win_amount']-result['msg']['closed_options'][0]['amount'] if result['msg']['closed_options'][0]['win'] != 'equal' else 0)
+                break
+            time.sleep(1)
 
 # -------------------get infomation only for binary option------------------------
 
@@ -756,6 +763,7 @@ class IQ_Option:
 # __________________________BUY__________________________
 
 # __________________FOR OPTION____________________________
+
 
     def buy_multi(self, price, ACTIVES, ACTION, expirations):
         self.api.buy_multi_option = {}
@@ -1379,6 +1387,7 @@ class IQ_Option:
 
 
 # -----------------------------------------------------------------
+
 
     def opcode_to_name(self, opcode):
         return list(OP_code.ACTIVES.keys())[list(OP_code.ACTIVES.values()).index(opcode)]
