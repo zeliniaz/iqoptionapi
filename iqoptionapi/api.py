@@ -85,6 +85,7 @@ class IQOptionAPI(object):  # pylint: disable=too-many-instance-attributes
 
     # pylint: disable=too-many-public-methods
     socket_option_opened = {}
+    socket_option_closed = {}
     timesync = TimeSync()
     profile = Profile()
     candles = Candles()
@@ -461,6 +462,7 @@ class IQOptionAPI(object):  # pylint: disable=too-many-instance-attributes
     @property
     def unsubscribe_all_size(self):
         return Unsubscribe_candles(self)
+
     def portfolio(self, Main_Name, name, instrument_type, user_balance_id="", limit=1, offset=0, request_id=""):
         # Main name:"unsubscribeMessage"/"subscribeMessage"/"sendMessage"(only for portfolio.get-positions")
         # name:"portfolio.order-changed"/"portfolio.get-positions"/"portfolio.position-changed"
@@ -519,7 +521,6 @@ class IQOptionAPI(object):  # pylint: disable=too-many-instance-attributes
                }
         self.send_websocket_request(
             name="sendMessage", msg=msg, request_id=str(request_id))
-
 
     def subscribe_position_changed(self, name, instrument_type, request_id):
         # instrument_type="multi-option","crypto","forex","cfd"
