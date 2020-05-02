@@ -1,7 +1,7 @@
 site_name: iqoptionapi document
 repo_name: "iqoptionapi"
 repo_url: "https://github.com/iqoptionapi/iqoptionapi"
-site_url: "https://thu-dblab.github.io/IRBRL/"
+site_url: "https://iqoptionapi.github.io/iqoptionapi/"
 edit_uri: "" # this code say do not view edit on page
 extra:
   search:
