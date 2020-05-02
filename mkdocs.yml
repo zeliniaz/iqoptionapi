@@ -9,7 +9,7 @@ extra:
     language: "pt-br"
     #-tokenizer: '[\a\-\.]+'
   social:
-    - type: "github"
+    - icon: "fontawesome/brands/github"
       link: "https://github.com/iqoptionapi/iqoptionapi"
 
 plugins:
@@ -20,11 +20,14 @@ plugins:
         - es
 theme:
   language: "en"
+  logo: "logo.png"
   name: "material" #readthedocs/readthedocs
+  custom_dir: doc/theme/material
+  icon: assets/images/favicon.png
   palette:
     primary: "indigo"
     accent: "Blue Grey"
-  feature:
+  features:
     tabs: false
   font:
     text: "Roboto"
@@ -67,12 +70,17 @@ extra_javascript:
   - "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js"
 
 nav:
-  - Language: index.md
-  - EN - Get Start: en/index.md
-  - EN - account: en/account/account.md
-  - EN - for all: en/all/all.md
-  - EN - binary option: en/binary option/binary option.md
-  - EN - digital: en/digital/digital.md
-  - EN - foreign exchange futures: en/fef/fef.md
-  - EN - candle: en/candle/candle.md
-  - EN - Techincal Analysis: en/techinical analysis/index.md
+  - Home: index.md
+  - English:
+      - Get Start: en/index.md
+      - Account: en/account/account.md
+      - For all: en/all/all.md
+      - Binary option: en/binary option/binary option.md
+      - Digital: en/digital/digital.md
+      - Foreign exchange futures: en/fef/fef.md
+      - candle: en/candle/candle.md
+      - Techincal Analysis: en/techinical analysis/index.md
+  - Português:
+      - Primeiros Passo: pt/index.md
+  - Espanol:
+      - Vamos a comenzar: pt/index.md
