@@ -1,14 +1,39 @@
-# IQ Option API
+## IQOPTION API SUPPORTED BY COMMUNITY
 
-[PORTUGUESE VERSION](docs/pt-br/README.md)<BR>
-[SPANISH VERSION](docs/es/README.md)
+This api is intended to be an open source project to communicate with iqOption site.
+this is a no official repository, it means it is maintained by community
 
-HELP TO KEEP THIS PROJECT WORKING:<BR>
-NÓS AJUDE A MANTER O PROJETO:<br>
-AYÚDENOS A CONTINUAR EL PROYECTO:
-[
-![Donate with PayPal](https://raw.githubusercontent.com/iqoptionapi/iqoptionapi/master/docs/paypal-donate-button.png)
-](https://bit.ly/ajudeocanaldofaria)
+Esta API é destinada a ser um projeto de código aberto para se comunicar com o site da iqOption.
+este é um repositório não oficial, significa que é mantido pela comunidade
+
+Esta API está destinada a ser un proyecto de código abierto para comunicarse con el sitio de IqIoption.
+este es un repositorio no oficial, significa que es mantenido por la comunidad
+
+<div style="text-align:center;">
+	<h2> Idiomas | Languages </h2>
+	<a href="https://iqoptionapi.github.io/iqoptionapi/pt/">
+		<img src="doc/image/flags/br.png "
+		alt="Português" width="50" height="50" />
+	</a>
+	<a href="https://iqoptionapi.github.io/iqoptionapi/es/">
+		<img src="doc/image/flags/es.png "
+		alt="Espanol" width="50" height="50" />
+	</a>
+	<a href="https://iqoptionapi.github.io/iqoptionapi/en/">
+		<img src="doc/image/flags/en.png "
+		alt="English" width="50" height="50" />
+	</a>
+</div>
+<div style="text-align:center;margin-top:30px;">
+    HELP TO KEEP THIS PROJECT WORKING:<BR>
+    NÓS AJUDE A MANTER O PROJETO:<br>
+    AYÚDENOS A CONTINUAR EL PROYECTO:<br>
+
+<a href="https://bit.ly/ajudeocanaldofaria">
+    <img src="https://raw.githubusercontent.com/iqoptionapi/iqoptionapi/master/docs/paypal-donate-button.png"
+        alt="English" width="150" height="60" />
+</a>
+</div>
 
 This api is based on [Lu-Yi-Hsun](https://github.com/Lu-Yi-Hsun/iqoptionapi/)
 

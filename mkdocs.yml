@@ -3,6 +3,7 @@ repo_name: "iqoptionapi"
 repo_url: "https://github.com/iqoptionapi/iqoptionapi"
 site_url: "https://iqoptionapi.github.io/iqoptionapi/"
 docs_dir: "doc/"
+site_dir: "docs/"
 extra:
   search:
     language: "pt-br"
@@ -67,10 +68,11 @@ extra_javascript:
 
 nav:
   - Language: index.md
-  - En - Get Start: en/index.md
-  - En - account: en/account/account.md
-  - En - for all: en/all/all.md
-  - En - binary option: en/binary option/binary option.md
-  - En - digital: en/digital/digital.md
-  - En - foreign exchange futures: en/fef/fef.md
-  - En - candle: en/candle/candle.md
+  - EN - Get Start: en/index.md
+  - EN - account: en/account/account.md
+  - EN - for all: en/all/all.md
+  - EN - binary option: en/binary option/binary option.md
+  - EN - digital: en/digital/digital.md
+  - EN - foreign exchange futures: en/fef/fef.md
+  - EN - candle: en/candle/candle.md
+  - EN - Techincal Analysis: en/techinical analysis/index.md
