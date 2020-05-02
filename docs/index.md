@@ -11,15 +11,15 @@ este es un repositorio no oficial, significa que es mantenido por la comunidad
 
 <div style="text-align:center;">
 	<h2> Idiomas | Languages </h2>
-	<a href="pt/" target="_blank">
+	<a href="pt/">
 		<img src="image/flags/br.png "
 		alt="Português" width="50" height="50" />
 	</a>
-	<a href="es/" target="_blank">
+	<a href="es/">
 		<img src="image/flags/es.png "
 		alt="Espanol" width="50" height="50" />
 	</a>
-	<a href="en/" target="_blank">
+	<a href="en/">
 		<img src="image/flags/en.png "
 		alt="English" width="50" height="50" />
 	</a>
