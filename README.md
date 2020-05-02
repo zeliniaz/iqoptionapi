@@ -9,7 +9,7 @@ este é um repositório não oficial, significa que é mantido pela comunidade
 Esta API está destinada a ser un proyecto de código abierto para comunicarse con el sitio de IqIoption.
 este es un repositorio no oficial, significa que es mantenido por la comunidad
 
-<div style="text-align:center;">
+<div align="center">
 	<h2> Idiomas | Languages </h2>
 	<a href="https://iqoptionapi.github.io/iqoptionapi/pt/">
 		<img src="doc/image/flags/br.png "
@@ -24,7 +24,7 @@ este es un repositorio no oficial, significa que es mantenido por la comunidad
 		alt="English" width="50" height="50" />
 	</a>
 </div>
-<div style="text-align:center;margin-top:30px;">
+<div align="center" style="margin-top:30px">
     HELP TO KEEP THIS PROJECT WORKING:<BR>
     NÓS AJUDE A MANTER O PROJETO:<br>
     AYÚDENOS A CONTINUAR EL PROYECTO:<br>
