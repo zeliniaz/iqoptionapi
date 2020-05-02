@@ -50,6 +50,10 @@ I don't know how all works yet but I'll learn and teach you
 - [How to start](#howtostart)
 - [How to get Technical Indicators](#technicalindicators)
 
+## Live documentation
+
+[documentation](https://iqoptionapi.github.io/iqoptionapi/)
+
 <div id='contribe'/>
 
 ## Contribute with Community
