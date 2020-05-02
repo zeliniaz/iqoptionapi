@@ -1,33 +1,13 @@
 # Get start
 
-## document version
-
-last update:2020/3/13
-
-Version:6.8.9
-
-fix some ssl problem
-
-Version:6.8.8
-
-more stable 
-
-fix login and auto logout
-
-fix check_connect
-
-Version:6.8.7
-
-add get_leader_board
- 
-
-## install iqoptionapi
+## Install iqoptionapi
 
 download the source code and run this
 
 ```
 python setup.py install
 ```
+
 ## little sample
 
 ```python
@@ -45,6 +25,7 @@ print(I_want_money.get_candles(goal,60,111,time.time()))
 ```python
 from iqoptionapi.stable_api import IQ_Option
 ```
+
 ## Login
 
 I_want_money.connect() will return (check,reason)
@@ -62,13 +43,14 @@ I_want_money=IQ_Option("email","password")
 check, reason=I_want_money.connect()#connect to iqoption
 print(check, reason)
 ```
+
 ## Debug mode on
 
 ```python
 import logging
 logging.basicConfig(level=logging.DEBUG,format='%(asctime)s %(message)s')
 ```
- 
+
 ## Connect&Check connect
 
 some time connect will close so this way can check connect and reconnect
@@ -83,10 +65,10 @@ check,reason=iqoption.connect()
 if check:
     print("Start your robot")
     #if see this you can close network for test
-    while True: 
+    while True:
         if iqoption.check_connect()==False:#detect the websocket is close
             print("try reconnect")
-            check,reason=iqoption.connect()         
+            check,reason=iqoption.connect()
             if check:
                 print("Reconnect successfully")
             else:
@@ -94,14 +76,15 @@ if check:
                     print("Error Password")
                 else:
                     print("No Network")
-        
+
 else:
-    
+
     if reason=="[Errno -2] Name or service not known":
         print("No Network")
     elif reason==error_password:
         print("Error Password")
 ```
+
 ## set_session
 
 Default User-Agent is "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36"
@@ -110,7 +93,7 @@ Default User-Agent is "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML
 from iqoptionapi.stable_api import IQ_Option
 import logging
 logging.basicConfig(level=logging.DEBUG,format='%(asctime)s %(message)s')
- 
+
 I_want_money=IQ_Option("email","password")
 
 #Default is "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36"
@@ -133,6 +116,7 @@ print(IQ_Option.__version__)
 ## Check connect
 
 return True/False
+
 ```
 print(I_want_money.check_connect())
 ```
@@ -151,4 +135,3 @@ the get_server_timestamp time is sync with iqoption
 ```python
 I_want_money.get_server_timestamp()
 ```
- 
