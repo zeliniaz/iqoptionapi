@@ -23,15 +23,15 @@ este es un repositorio no oficial, significa que es mantenido por la comunidad
 		<img src="doc/image/flags/en.png "
 		alt="English" width="50" height="50" />
 	</a>
-</div>
-<div align="center" style="margin-top:30px">
+</div><br><br>
+<div align="center">
     HELP TO KEEP THIS PROJECT WORKING:<BR>
     NÓS AJUDE A MANTER O PROJETO:<br>
     AYÚDENOS A CONTINUAR EL PROYECTO:<br>
 
 <a href="https://bit.ly/ajudeocanaldofaria">
     <img src="https://raw.githubusercontent.com/iqoptionapi/iqoptionapi/master/docs/paypal-donate-button.png"
-        alt="English" width="150" height="60" />
+        alt="English" width="200" height="80" />
 </a>
 </div>
 
