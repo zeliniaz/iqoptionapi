@@ -95,6 +95,7 @@
       height: 380px;
       color: #ffffff;
       padding-top: 90px;
+      position: relative;
     }
 
     .don-title {
@@ -107,6 +108,14 @@
       font-size: 0.8rem;
       font-weight: 300;
       margin-bottom: 0;
+    }
+
+    .don-translate {
+      position: absolute;
+      bottom: 10px;
+      right: 20%;
+      font-weight: bold;
+      font-size: 0.5rem;
     }
 
     .don-link {
@@ -182,73 +191,102 @@
       {% include "partials/tabs.html" %}
       {% endif %}
       {% endblock %}
+
+      {% if page and page.url and "en/" in page.url%}
       <div class="donation">
-        <h5 class="don-sub">Helping who helps you</h5>
+        <h5 class="don-sub">Helping who helps you </h5>
         <h3 class="don-title">
           Support this work
         </h3>
         <a href="https://bit.ly/ajudeocanaldofaria" class="don-link">
-          Donation | Doação
+          Donation
         </a>
-
       </div>
-      <main class="md-main" data-md-component="main">
-        <div class="md-main__inner md-grid">
-          {% block site_nav %}
-          {% if nav %}
-          <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
-            <div class="md-sidebar__scrollwrap">
-              <div class="md-sidebar__inner">
-                {% include "partials/nav.html" %}
-              </div>
+      {% endif %}
+      {% if page and page.url and "es/" in page.url%}
+      <div class="donation">
+        <a href="https://github.com/DiMiTriFrog" class="don-translate" target="_blank">
+          Traduccion: Dimitri
+        </a>
+        <h5 class="don-sub">Ayudando a quien te ayuda. </h5>
+        <h3 class="don-title">
+          Soporta este proyecto con una donación
+        </h3>
+        <a href="https://bit.ly/ajudeocanaldofaria" class="don-link">
+          Donación
+        </a>
+      </div>
+      {% endif %}
+      {% if page and page.url and "pt/" in page.url%}
+      <div class="donation">
+        <h5 class="don-sub">Ajudando quem te ajuda </h5>
+        <h3 class="don-title">
+          Apoie este trabalho
+        </h3>
+        <a href="https://bit.ly/ajudeocanaldofaria" class="don-link">
+          Doação
+        </a>
+      </div>
+      {% endif %}
+
+    </div>
+    <main class="md-main" data-md-component="main">
+      <div class="md-main__inner md-grid">
+        {% block site_nav %}
+        {% if nav %}
+        <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+          <div class="md-sidebar__scrollwrap">
+            <div class="md-sidebar__inner">
+              {% include "partials/nav.html" %}
             </div>
-          </div>
-          {% endif %}
-          {% if page.toc %}
-          <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
-            <div class="md-sidebar__scrollwrap">
-              <div class="md-sidebar__inner">
-                {% include "partials/toc.html" %}
-              </div>
-            </div>
-          </div>
-          {% endif %}
-          {% endblock %}
-          <div class="md-content">
-            <article class="md-content__inner md-typeset">
-              {% block content %}
-              {% if page.edit_url %}
-              <a href="{{ page.edit_url }}" title="{{ lang.t('edit.link.title') }}" class="md-content__button md-icon">
-                {% include ".icons/material/pencil.svg" %}
-              </a>
-              {% endif %}
-              {% block source %}
-              {% if page and page.meta and page.meta.source %}
-              {% include "partials/source-link.html" %}
-              {% endif %}
-              {% endblock %}
-              {% if not "\x3ch1" in page.content %}
-              <h1>{{ page.title | default(config.site_name, true)}}</h1>
-              {% endif %}
-              {{ page.content }}
-              {% if page and page.meta %}
-              {% if page.meta.git_revision_date_localized or
-                        page.meta.revision_date
-                  %}
-              {% include "partials/source-date.html" %}
-              {% endif %}
-              {% endif %}
-              {% endblock %}
-              {% block disqus %}
-              {% include "partials/integrations/disqus.html" %}
-              {% endblock %}
-            </article>
           </div>
         </div>
-      </main>
-      {% block footer %}
-      {% include "partials/footer.html" %}
-      {% endblock %}
+        {% endif %}
+        {% if page.toc %}
+        <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+          <div class="md-sidebar__scrollwrap">
+            <div class="md-sidebar__inner">
+              {% include "partials/toc.html" %}
+            </div>
+          </div>
+        </div>
+        {% endif %}
+        {% endblock %}
+        <div class="md-content">
+          <article class="md-content__inner md-typeset">
+            {% block content %}
+            {% if page.edit_url %}
+            <a href="{{ page.edit_url }}" title="{{ lang.t('edit.link.title') }}" class="md-content__button md-icon">
+              {% include ".icons/material/pencil.svg" %}
+            </a>
+            {% endif %}
+            {% block source %}
+            {% if page and page.meta and page.meta.source %}
+            {% include "partials/source-link.html" %}
+            {% endif %}
+            {% endblock %}
+            {% if not "\x3ch1" in page.content %}
+            <h1>{{ page.title | default(config.site_name, true)}}</h1>
+            {% endif %}
+            {{ page.content }}
+            {% if page and page.meta %}
+            {% if page.meta.git_revision_date_localized or
+                        page.meta.revision_date
+                  %}
+            {% include "partials/source-date.html" %}
+            {% endif %}
+            {% endif %}
+            {% endblock %}
+            {% block disqus %}
+            {% include "partials/integrations/disqus.html" %}
+            {% endblock %}
+          </article>
+        </div>
+      </div>
+    </main>
+    {% block footer %}
+    {% include "partials/footer.html" %}
+    {% endblock %}
     </div>
     {% block scripts %}
     <script src="{{ 'assets/javascripts/vendor.8caa27b7.min.js' | url }}"></script>

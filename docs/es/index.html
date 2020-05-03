@@ -18,7 +18,7 @@
   
   
   
-  <title>IQ Option API - iqoptionapi document</title>
+  <title>Empezar - iqoptionapi document</title>
   
   
   
@@ -67,6 +67,7 @@
       height: 380px;
       color: #ffffff;
       padding-top: 90px;
+      position: relative;
     }
 
     .don-title {
@@ -79,6 +80,14 @@
       font-size: 0.8rem;
       font-weight: 300;
       margin-bottom: 0;
+    }
+
+    .don-translate {
+      position: absolute;
+      bottom: 10px;
+      right: 20%;
+      font-weight: bold;
+      font-size: 0.5rem;
     }
 
     .don-link {
@@ -117,7 +126,7 @@
     <div data-md-component="skip">
       
       
-      <a href="#iq-option-api" class="md-skip">
+      <a href="#primeros-pasos" class="md-skip">
         Skip to content
       </a>
       
@@ -144,7 +153,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              IQ Option API
+              Empezar
             
           </span>
         </div>
@@ -206,14 +215,16 @@
       
       
 
-<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  
+
+<nav class="md-tabs md-tabs--active" aria-label="Tabs" data-md-component="tabs">
   <div class="md-tabs__inner md-grid">
     <ul class="md-tabs__list">
       
         
   <li class="md-tabs__item">
     
-      <a href=".." class="md-tabs__link md-tabs__link--active">
+      <a href=".." class="md-tabs__link">
         Home
       </a>
     
@@ -251,7 +262,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../pt/" class="md-tabs__link">
+        <a href="./" class="md-tabs__link md-tabs__link--active">
           Espanol
         </a>
       
@@ -264,24 +275,33 @@
 </nav>
       
       
+
+      
+      
       <div class="donation">
-        <h5 class="don-sub">Helping who helps you</h5>
+        <a href="https://github.com/DiMiTriFrog" class="don-translate" target="_blank">
+          Traduccion: Dimitri
+        </a>
+        <h5 class="don-sub">Ayudando a quien te ayuda. </h5>
         <h3 class="don-title">
-          Support this work
+          Soporta este proyecto con una donación
         </h3>
         <a href="https://bit.ly/ajudeocanaldofaria" class="don-link">
-          Donation | Doação
+          Donación
         </a>
-
       </div>
-      <main class="md-main" data-md-component="main">
-        <div class="md-main__inner md-grid">
-          
-          
-          <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
-            <div class="md-sidebar__scrollwrap">
-              <div class="md-sidebar__inner">
-                <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+      
+      
+
+    </div>
+    <main class="md-main" data-md-component="main">
+      <div class="md-main__inner md-grid">
+        
+        
+        <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+          <div class="md-sidebar__scrollwrap">
+            <div class="md-sidebar__inner">
+              <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="https://iqoptionapi.github.io/iqoptionapi/" title="iqoptionapi document" class="md-nav__button md-logo" aria-label="iqoptionapi document">
       
@@ -490,10 +510,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
     
     <label class="md-nav__link" for="nav-4">
       Espanol
@@ -515,10 +537,206 @@
           
           
 
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Empezar
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="Empezar" class="md-nav__link md-nav__link--active">
+      Empezar
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#instalar-iqoptionapi" class="md-nav__link">
+    Instalar iqoptionapi
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#un-ejemplo-simple" class="md-nav__link">
+    Un ejemplo simple
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#importar-la-libreria" class="md-nav__link">
+    Importar la librería
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#login" class="md-nav__link">
+    Login
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#activar-el-modo-debug" class="md-nav__link">
+    Activar el modo Debug
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conectarse-y-comprobar-la-conexion" class="md-nav__link">
+    Conectarse y comprobar la conexión
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set_session" class="md-nav__link">
+    set_session
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comprobar-version" class="md-nav__link">
+    Comprobar versión
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comprobar-conexion" class="md-nav__link">
+    Comprobar conexión
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reconnect" class="md-nav__link">
+    Reconnect
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#time" class="md-nav__link">
+    time
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
 
   <li class="md-nav__item">
-    <a href="../pt/" title="Vamos a comenzar" class="md-nav__link">
-      Vamos a comenzar
+    <a href="account/account/" title="Cuenta" class="md-nav__link">
+      Cuenta
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="all/all/" title="Para todo" class="md-nav__link">
+      Para todo
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="binary%20option/binary%20option/" title="Opciones Binarias" class="md-nav__link">
+      Opciones Binarias
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="digital/digital/" title="Digital" class="md-nav__link">
+      Digital
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="fef/fef/" title="Furutos de divisas" class="md-nav__link">
+      Furutos de divisas
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="candle/candle/" title="Velas" class="md-nav__link">
+      Velas
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="techinical%20analysis/" title="Análisis técnico" class="md-nav__link">
+      Análisis técnico
     </a>
   </li>
 
@@ -530,58 +748,284 @@
     
   </ul>
 </nav>
-              </div>
             </div>
           </div>
-          
-          
-          <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
-            <div class="md-sidebar__scrollwrap">
-              <div class="md-sidebar__inner">
-                
+        </div>
+        
+        
+        <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+          <div class="md-sidebar__scrollwrap">
+            <div class="md-sidebar__inner">
+              
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#instalar-iqoptionapi" class="md-nav__link">
+    Instalar iqoptionapi
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#un-ejemplo-simple" class="md-nav__link">
+    Un ejemplo simple
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#importar-la-libreria" class="md-nav__link">
+    Importar la librería
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#login" class="md-nav__link">
+    Login
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#activar-el-modo-debug" class="md-nav__link">
+    Activar el modo Debug
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conectarse-y-comprobar-la-conexion" class="md-nav__link">
+    Conectarse y comprobar la conexión
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set_session" class="md-nav__link">
+    set_session
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comprobar-version" class="md-nav__link">
+    Comprobar versión
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comprobar-conexion" class="md-nav__link">
+    Comprobar conexión
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reconnect" class="md-nav__link">
+    Reconnect
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#time" class="md-nav__link">
+    time
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
-              </div>
             </div>
           </div>
-          
-          
-          <div class="md-content">
-            <article class="md-content__inner md-typeset">
-              
-              
-              <a href="https://github.com/iqoptionapi/iqoptionapi/edit/master/docs/es/README.md" title="Edit this page" class="md-content__button md-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
-              </a>
-              
-              
-              
-              
-              
-              <h1 id="iq-option-api">IQ Option API<a class="headerlink" href="#iq-option-api" title="Permanent link">&para;</a></h1>
-<p>Todavía no tiene la traducción al español.</p>
-<p>Pronto estará disponible.</p>
-<p>Si quieres ayudar ...
-puedes ayudarnos a traducir y enviárnoslo.</p>
-              
-              
-              
-              
+        </div>
+        
+        
+        <div class="md-content">
+          <article class="md-content__inner md-typeset">
+            
+            
+            <a href="https://github.com/iqoptionapi/iqoptionapi/edit/master/docs/es/index.md" title="Edit this page" class="md-content__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+            </a>
+            
+            
+            
+            
+            
+            <h1 id="primeros-pasos">Primeros pasos<a class="headerlink" href="#primeros-pasos" title="Permanent link">&para;</a></h1>
+<h2 id="instalar-iqoptionapi">Instalar iqoptionapi<a class="headerlink" href="#instalar-iqoptionapi" title="Permanent link">&para;</a></h2>
+<p>descarga el código fuente y ejecuta lo siguiente:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">python</span> <span class="n">setup</span><span class="p">.</span><span class="n">py</span> <span class="n">install</span>
+</code></pre></div>
+
+<h2 id="un-ejemplo-simple">Un ejemplo simple<a class="headerlink" href="#un-ejemplo-simple" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">iqoptionapi.stable_api</span> <span class="kn">import</span> <span class="n">IQ_Option</span>
+<span class="n">I_want_money</span><span class="o">=</span><span class="n">IQ_Option</span><span class="p">(</span><span class="s2">&quot;email&quot;</span><span class="p">,</span><span class="s2">&quot;password&quot;</span><span class="p">)</span>
+<span class="n">I_want_money</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span><span class="c1">#connect to iqoption</span>
+<span class="n">goal</span><span class="o">=</span><span class="s2">&quot;EURUSD&quot;</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;get candles&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">I_want_money</span><span class="o">.</span><span class="n">get_candles</span><span class="p">(</span><span class="n">goal</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">111</span><span class="p">,</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()))</span>
+</code></pre></div>
+
+<h2 id="importar-la-libreria">Importar la librería<a class="headerlink" href="#importar-la-libreria" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">iqoptionapi.stable_api</span> <span class="kn">import</span> <span class="n">IQ_Option</span>
+</code></pre></div>
+
+<h2 id="login">Login<a class="headerlink" href="#login" title="Permanent link">&para;</a></h2>
+<p>I_want_money.connect() will return (check,reason)</p>
+<p>Si la conexión es exitosa, devuelve -&gt; True,None</p>
+<p>Si hay algún fallo en la conexión, devuelve -&gt; False,reason</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">iqoptionapi.stable_api</span> <span class="kn">import</span> <span class="n">IQ_Option</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span><span class="n">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1"> </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">I_want_money</span><span class="o">=</span><span class="n">IQ_Option</span><span class="p">(</span><span class="s2">&quot;email&quot;</span><span class="p">,</span><span class="s2">&quot;password&quot;</span><span class="p">)</span>
+<span class="n">check</span><span class="p">,</span> <span class="n">reason</span><span class="o">=</span><span class="n">I_want_money</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span><span class="c1">#connect to iqoption</span>
+<span class="k">print</span><span class="p">(</span><span class="n">check</span><span class="p">,</span> <span class="n">reason</span><span class="p">)</span>
+</code></pre></div>
+
+<h2 id="activar-el-modo-debug">Activar el modo Debug<a class="headerlink" href="#activar-el-modo-debug" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">logging</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span><span class="n">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1"> </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+<h2 id="conectarse-y-comprobar-la-conexion">Conectarse y comprobar la conexión<a class="headerlink" href="#conectarse-y-comprobar-la-conexion" title="Permanent link">&para;</a></h2>
+<p>A veces la conexión se cierra, así que debemos de comprobar la conexión y
+volvenos a conectar.</p>
+<p>Prueba a desconectar tu conexión y volverla a conectar para probar el siguiente
+ejemplo.</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">iqoptionapi.stable_api</span> <span class="kn">import</span> <span class="n">IQ_Option</span>
+<span class="n">error_password</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;{&quot;code&quot;:&quot;invalid_credentials&quot;,&quot;message&quot;:&quot;You entered the wrong credentials. Please check that the login/password is correct.&quot;}&quot;&quot;&quot;</span>
+<span class="n">iqoption</span> <span class="o">=</span> <span class="n">IQ_Option</span><span class="p">(</span><span class="s2">&quot;email&quot;</span><span class="p">,</span> <span class="s2">&quot;password&quot;</span><span class="p">)</span>
+<span class="n">check</span><span class="p">,</span><span class="n">reason</span><span class="o">=</span><span class="n">iqoption</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+<span class="k">if</span> <span class="n">check</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Activa tu robot&quot;</span><span class="p">)</span>
+    <span class="c1">#Si ves esto puedess cerrar la conexión para probarlo</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">iqoption</span><span class="o">.</span><span class="n">check_connect</span><span class="p">()</span><span class="o">==</span><span class="bp">False</span><span class="p">:</span><span class="c1">#Detecta si el websocket ha sido cerrado</span>
+            <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Probando a reconectar&quot;</span><span class="p">)</span>
+            <span class="n">check</span><span class="p">,</span><span class="n">reason</span><span class="o">=</span><span class="n">iqoption</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">check</span><span class="p">:</span>
+                <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Reconectado con éxito&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">reason</span><span class="o">==</span><span class="n">error_password</span><span class="p">:</span>
+                    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Contraseña incorrecta&quot;</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;No hay conexión&quot;</span><span class="p">)</span>
+
+<span class="k">else</span><span class="p">:</span>
+
+    <span class="k">if</span> <span class="n">reason</span><span class="o">==</span><span class="s2">&quot;[Errno -2] Nombre or servicio no conocido&quot;</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;No hay conexión&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">reason</span><span class="o">==</span><span class="n">error_password</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Error en la Contraseña&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<h2 id="set_session">set_session<a class="headerlink" href="#set_session" title="Permanent link">&para;</a></h2>
+<p>Default User-Agent is "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36"</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">iqoptionapi.stable_api</span> <span class="kn">import</span> <span class="n">IQ_Option</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span><span class="n">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1"> </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">I_want_money</span><span class="o">=</span><span class="n">IQ_Option</span><span class="p">(</span><span class="s2">&quot;email&quot;</span><span class="p">,</span><span class="s2">&quot;password&quot;</span><span class="p">)</span>
+
+<span class="c1">#Por defecto es &quot;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36&quot;</span>
+
+<span class="n">header</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;User-Agent&quot;</span><span class="p">:</span><span class="sa">r</span><span class="s2">&quot;Mozilla/5.0 (X11; Linux x86_64; rv:70.0) Gecko/20100101 Firefox/70.0&quot;</span><span class="p">}</span>
+<span class="n">cookie</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;I_want_money&quot;</span><span class="p">:</span><span class="s2">&quot;GOOD&quot;</span><span class="p">}</span>
+
+<span class="n">I_want_money</span><span class="o">.</span><span class="n">set_session</span><span class="p">(</span><span class="n">header</span><span class="p">,</span><span class="n">cookie</span><span class="p">)</span>
+
+<span class="n">I_want_money</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span><span class="c1">#Conectar a IqOption</span>
+</code></pre></div>
+
+<h2 id="comprobar-version">Comprobar versión<a class="headerlink" href="#comprobar-version" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">iqoptionapi.stable_api</span> <span class="kn">import</span> <span class="n">IQ_Option</span>
+<span class="k">print</span><span class="p">(</span><span class="n">IQ_Option</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+</code></pre></div>
+
+<h2 id="comprobar-conexion">Comprobar conexión<a class="headerlink" href="#comprobar-conexion" title="Permanent link">&para;</a></h2>
+<p>return True/False</p>
+<div class="codehilite"><pre><span></span><code><span class="n">print</span><span class="p">(</span><span class="n">I_want_money</span><span class="p">.</span><span class="n">check_connect</span><span class="p">())</span>
+</code></pre></div>
+
+<h2 id="reconnect">Reconnect<a class="headerlink" href="#reconnect" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="n">I_want_money</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+</code></pre></div>
+
+<h2 id="time">time<a class="headerlink" href="#time" title="Permanent link">&para;</a></h2>
+<p>get_server_timestamp
+El tiempo se sincronica con iqoption</p>
+<div class="codehilite"><pre><span></span><code><span class="n">I_want_money</span><span class="o">.</span><span class="n">get_server_timestamp</span><span class="p">()</span>
+</code></pre></div>
+            
+            
+            
+            
 
 
-              
-            </article>
+            
+          </article>
+        </div>
+      </div>
+    </main>
+    
+    
+<footer class="md-footer">
+  
+  <div class="md-footer-nav">
+    <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+      
+      <a href="../pt/" title="Primeiros Passo"
+        class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+        <div class="md-footer-nav__button md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </div>
+        <div class="md-footer-nav__title">
+          <div class="md-ellipsis">
+            <span class="md-footer-nav__direction">
+              Previous
+            </span>
+            Primeiros Passo
           </div>
         </div>
-      </main>
+      </a>
       
       
-<footer class="md-footer">
+      <a href="account/account/" title="Cuenta"
+        class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+        <div class="md-footer-nav__title">
+          <div class="md-ellipsis">
+            <span class="md-footer-nav__direction">
+              Next
+            </span>
+            Cuenta
+          </div>
+        </div>
+        <div class="md-footer-nav__button md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+        </div>
+      </a>
+      
+    </nav>
+  </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -602,7 +1046,7 @@ puedes ayudarnos a traducir y enviárnoslo.</p>
     </div>
   </div>
 </footer>
-      
+    
     </div>
     
     <script src="../assets/javascripts/vendor.8caa27b7.min.js"></script>
