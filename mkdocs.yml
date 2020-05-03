@@ -80,8 +80,15 @@ nav:
       - Foreign exchange futures: en/fef/fef.md
       - candle: en/candle/candle.md
       - Techincal Analysis: en/techinical analysis/index.md
-  - Português:
-      - Primeiros Passo: pt/index.md
+  - Portugues:
+      - Primeiros Passos: pt/index.md
+      - Conta: pt/account/account.md
+      - para Todos: pt/all/all.md
+      - Opções Binarias: pt/binary option/binary option.md
+      - Digital: pt/digital/digital.md
+      - Forex, Cripto, Ações, Commodities e Fundos: pt/fef/fef.md
+      - candle: pt/candle/candle.md
+      - Techincal Analysis: pt/techinical analysis/index.md
   - Espanol:
       - Empezar: es/index.md
       - Cuenta: es/account/account.md
