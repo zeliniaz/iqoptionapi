@@ -139,21 +139,21 @@ class WebsocketClient(object):
 
         elif message['name'] == 'balance-changed':
             balance = message['msg']['current_balance']
-            if self.api.get_active_account_type() == balance['type']:
-                try:
-                    self.api.profile.balance = balance["amount"]
-                except:
-                    pass
+            # if self.api.get_active_account_type() == balance['type']:
+            try:
+                self.api.profile.balance = balance["amount"]
+            except:
+                pass
 
-                try:
-                    self.api.profile.balance_id = balance["id"]
-                except:
-                    pass
+            try:
+                self.api.profile.balance_id = balance["id"]
+            except:
+                pass
 
-                try:
-                    self.api.profile.balance_type = balance["type"]
-                except:
-                    pass
+            try:
+                self.api.profile.balance_type = balance["type"]
+            except:
+                pass
 
         elif message["name"] == "candles":
             try:
@@ -213,6 +213,9 @@ class WebsocketClient(object):
 
             self.api.order_async[int(
                 message["msg"]["option_id"])][message["name"]] = message
+            if message["microserviceName"] == "binary-options":
+                self.api.order_binary[
+                    message["msg"]["option_id"]] = message['msg']
 
         elif message["name"] == "top-assets-updated":
             self.api.top_assets_updated_data[str(
@@ -331,8 +334,10 @@ class WebsocketClient(object):
                         "active": active,
                         **message["msg"]
                     }
-                    Thread(target=self.api.binary_live_deal_cb,
-                           kwargs=(cb_data)).start()
+                    realbinary = Thread(target=self.api.binary_live_deal_cb,
+                                        kwargs=(cb_data))
+                    realbinary.daemon = True
+                    realbinary.start()
             except:
                 pass
         elif message["name"] == "live-deal-digital-option":
@@ -349,8 +354,10 @@ class WebsocketClient(object):
                         "active": active,
                         **message["msg"]
                     }
-                    Thread(target=self.api.digital_live_deal_cb,
-                           kwargs=(cb_data)).start()
+                    realdigital = Thread(target=self.api.digital_live_deal_cb,
+                                         kwargs=(cb_data))
+                    realdigital.daemon = True
+                    realdigital.start()
             except:
                 pass
 

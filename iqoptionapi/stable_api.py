@@ -11,6 +11,7 @@ from collections import defaultdict
 from collections import deque
 from iqoptionapi.expiration import get_expiration_time, get_remaning_time
 from datetime import datetime, timedelta
+from random import randint
 
 
 def nested_dict(n, type):
@@ -300,7 +301,6 @@ class IQ_Option:
 
 # --------for binary option detail
 
-
     def get_binary_option_detail(self):
         detail = nested_dict(2, dict)
         init_info = self.get_all_init()
@@ -335,7 +335,6 @@ class IQ_Option:
 
 
 # ______________________________________self.api.getprofile() https________________________________
-
 
     def get_profile_ansyc(self):
         while self.api.profile.msg == None:
@@ -676,6 +675,17 @@ class IQ_Option:
 
 ##############################################################################################
 
+
+##############################################################################################
+
+
+    def check_binary_order(self, order_id):
+        while order_id not in self.api.order_binary:
+            pass
+        your_order = self.api.order_binary[order_id]
+        del self.api.order_binary[order_id]
+        return your_order
+
     def check_win(self, id_number):
         # 'win':win money 'equal':no win no loose   'loose':loose money
         while True:
@@ -764,7 +774,6 @@ class IQ_Option:
 
 # __________________FOR OPTION____________________________
 
-
     def buy_multi(self, price, ACTIVES, ACTION, expirations):
         self.api.buy_multi_option = {}
         if len(price) == len(ACTIVES) == len(ACTION) == len(expirations):
@@ -828,13 +837,14 @@ class IQ_Option:
     def buy(self, price, ACTIVES, ACTION, expirations):
         self.api.buy_multi_option = {}
         self.api.buy_successful = None
-        req_id = "buy"
+        # req_id = "buy"
+        req_id = str(randint(0, 10000))
         try:
             self.api.buy_multi_option[req_id]["id"] = None
         except:
             pass
         self.api.buyv3(
-            price, OP_code.ACTIVES[ACTIVES], ACTION, expirations, req_id)
+            float(price), OP_code.ACTIVES[ACTIVES], str(ACTION), int(expirations), req_id)
         start_t = time.time()
         id = None
         self.api.result = None
@@ -1387,7 +1397,6 @@ class IQ_Option:
 
 
 # -----------------------------------------------------------------
-
 
     def opcode_to_name(self, opcode):
         return list(OP_code.ACTIVES.keys())[list(OP_code.ACTIVES.values()).index(opcode)]

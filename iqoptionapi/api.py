@@ -103,6 +103,7 @@ class IQOptionAPI(object):  # pylint: disable=too-many-instance-attributes
     #position_changed_data = nested_dict(2, dict)
     # microserviceName_binary_options_name_option=nested_dict(2,dict)
     order_async = nested_dict(2, dict)
+    order_binary = {}
     game_betinfo = Game_betinfo_data()
     instruments = None
     financial_information = None
