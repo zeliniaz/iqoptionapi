@@ -701,7 +701,6 @@ class IQ_Option:
 
 ##############################################################################################
 
-
     def check_binary_order(self, order_id):
         while order_id not in self.api.order_binary:
             pass
@@ -1026,13 +1025,22 @@ class IQ_Option:
                         "PT" + str(duration) + "M" + action + "SPT"
         self.api.digital_option_placed_id = None
 
-        self.api.place_digital_option(instrument_id, amount)
-        while self.api.digital_option_placed_id == None:
+        request_id = self.api.place_digital_option(instrument_id, amount)
+
+        while self.api.digital_option_placed_id.get(request_id) == None:
             pass
-        if isinstance(self.api.digital_option_placed_id, int):
-            return True, self.api.digital_option_placed_id
+        digital_order_id = self.api.digital_option_placed_id.get(request_id)
+        if isinstance(digital_order_id, int):
+            return True, digital_order_id
         else:
-            return False, self.api.digital_option_placed_id
+            return False, digital_order_id
+
+        # while self.api.digital_option_placed_id == None:
+        #     pass
+        # if isinstance(self.api.digital_option_placed_id, int):
+        #     return True, self.api.digital_option_placed_id
+        # else:
+        #     return False, self.api.digital_option_placed_id
 
     def get_digital_spot_profit_after_sale(self, position_id):
         def get_instrument_id_to_bid(data, instrument_id):

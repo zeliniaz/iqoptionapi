@@ -4,6 +4,7 @@ import datetime
 import time
 from iqoptionapi.ws.chanels.base import Base
 import iqoptionapi.global_value as global_value
+from random import randint
 # work for forex digit cfd(stock)
 
 
@@ -23,7 +24,9 @@ class Digital_options_place_digital_option(Base):
                 "amount": str(amount)
             }
         }
-        self.send_websocket_request(self.name, data)
+        request_id = str(randint(0, 100000))
+        self.send_websocket_request(self.name, data, request_id)
+        return request_id
 
 
 class Digital_options_close_position(Base):

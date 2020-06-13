@@ -122,7 +122,7 @@ class IQOptionAPI(object):  # pylint: disable=too-many-instance-attributes
     close_position_data = None
     overnight_fee = None
     # ---for real time
-    digital_option_placed_id = None
+    digital_option_placed_id = {}
     live_deal_data = nested_dict(3, deque)
 
     subscribe_commission_changed_data = nested_dict(2, dict)
