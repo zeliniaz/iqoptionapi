@@ -8,6 +8,11 @@ descarga el código fuente y ejecuta lo siguiente:
 python setup.py install
 ```
 
+o instalar usando (Necesitas [git instalada](https://git-scm.com/downloads)):
+```
+pip install -U git+git://github.com/iqoptionapi/iqoptionapi.git
+```
+
 ## Un ejemplo simple
 
 ```python

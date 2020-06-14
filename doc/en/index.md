@@ -2,10 +2,14 @@
 
 ## Install iqoptionapi
 
-download the source code and run this
+You can download the source code and run this
 
 ```
 python setup.py install
+```
+or  install using (you need [git installed](https://git-scm.com/downloads)):
+```
+pip install -U git+git://github.com/iqoptionapi/iqoptionapi.git
 ```
 
 ## little sample
