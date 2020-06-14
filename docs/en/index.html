@@ -899,11 +899,11 @@ or  install using (you need <a href="https://git-scm.com/downloads">git installe
 <h2 id="little-sample">little sample<a class="headerlink" href="#little-sample" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">from</span> <span class="nn">iqoptionapi.stable_api</span> <span class="kn">import</span> <span class="n">IQ_Option</span>
-<span class="n">I_want_money</span><span class="o">=</span><span class="n">IQ_Option</span><span class="p">(</span><span class="s2">&quot;email&quot;</span><span class="p">,</span><span class="s2">&quot;password&quot;</span><span class="p">)</span>
-<span class="n">I_want_money</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span><span class="c1">#connect to iqoption</span>
+<span class="n">Iq</span><span class="o">=</span><span class="n">IQ_Option</span><span class="p">(</span><span class="s2">&quot;email&quot;</span><span class="p">,</span><span class="s2">&quot;password&quot;</span><span class="p">)</span>
+<span class="n">Iq</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span><span class="c1">#connect to iqoption</span>
 <span class="n">goal</span><span class="o">=</span><span class="s2">&quot;EURUSD&quot;</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;get candles&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">I_want_money</span><span class="o">.</span><span class="n">get_candles</span><span class="p">(</span><span class="n">goal</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">111</span><span class="p">,</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Iq</span><span class="o">.</span><span class="n">get_candles</span><span class="p">(</span><span class="n">goal</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">111</span><span class="p">,</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()))</span>
 </code></pre></div>
 
 <h2 id="import">Import<a class="headerlink" href="#import" title="Permanent link">&para;</a></h2>
@@ -911,15 +911,15 @@ or  install using (you need <a href="https://git-scm.com/downloads">git installe
 </code></pre></div>
 
 <h2 id="login">Login<a class="headerlink" href="#login" title="Permanent link">&para;</a></h2>
-<p>I_want_money.connect() will return (check,reason)</p>
+<p>Iq.connect() will return (check,reason)</p>
 <p>if connect sucess return True,None</p>
 <p>if connect fail return False,reason</p>
 <div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">iqoptionapi.stable_api</span> <span class="kn">import</span> <span class="n">IQ_Option</span>
 <span class="kn">import</span> <span class="nn">logging</span>
 
 <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1"> </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="n">I_want_money</span><span class="o">=</span><span class="n">IQ_Option</span><span class="p">(</span><span class="s2">&quot;email&quot;</span><span class="p">,</span><span class="s2">&quot;password&quot;</span><span class="p">)</span>
-<span class="n">check</span><span class="p">,</span> <span class="n">reason</span><span class="o">=</span><span class="n">I_want_money</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span><span class="c1">#connect to iqoption</span>
+<span class="n">Iq</span><span class="o">=</span><span class="n">IQ_Option</span><span class="p">(</span><span class="s2">&quot;email&quot;</span><span class="p">,</span><span class="s2">&quot;password&quot;</span><span class="p">)</span>
+<span class="n">check</span><span class="p">,</span> <span class="n">reason</span><span class="o">=</span><span class="n">Iq</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span><span class="c1">#connect to iqoption</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">check</span><span class="p">,</span> <span class="n">reason</span><span class="p">)</span>
 </code></pre></div>
 
@@ -964,16 +964,16 @@ or  install using (you need <a href="https://git-scm.com/downloads">git installe
 <span class="kn">import</span> <span class="nn">logging</span>
 <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1"> </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">)</span>
 
-<span class="n">I_want_money</span><span class="o">=</span><span class="n">IQ_Option</span><span class="p">(</span><span class="s2">&quot;email&quot;</span><span class="p">,</span><span class="s2">&quot;password&quot;</span><span class="p">)</span>
+<span class="n">Iq</span><span class="o">=</span><span class="n">IQ_Option</span><span class="p">(</span><span class="s2">&quot;email&quot;</span><span class="p">,</span><span class="s2">&quot;password&quot;</span><span class="p">)</span>
 
 <span class="c1">#Default is &quot;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36&quot;</span>
 
 <span class="n">header</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;User-Agent&quot;</span><span class="p">:</span><span class="sa">r</span><span class="s2">&quot;Mozilla/5.0 (X11; Linux x86_64; rv:70.0) Gecko/20100101 Firefox/70.0&quot;</span><span class="p">}</span>
-<span class="n">cookie</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;I_want_money&quot;</span><span class="p">:</span><span class="s2">&quot;GOOD&quot;</span><span class="p">}</span>
+<span class="n">cookie</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Iq&quot;</span><span class="p">:</span><span class="s2">&quot;GOOD&quot;</span><span class="p">}</span>
 
-<span class="n">I_want_money</span><span class="o">.</span><span class="n">set_session</span><span class="p">(</span><span class="n">header</span><span class="p">,</span><span class="n">cookie</span><span class="p">)</span>
+<span class="n">Iq</span><span class="o">.</span><span class="n">set_session</span><span class="p">(</span><span class="n">header</span><span class="p">,</span><span class="n">cookie</span><span class="p">)</span>
 
-<span class="n">I_want_money</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span><span class="c1">#connect to iqoption</span>
+<span class="n">Iq</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span><span class="c1">#connect to iqoption</span>
 </code></pre></div>
 
 <h2 id="check-version">Check version<a class="headerlink" href="#check-version" title="Permanent link">&para;</a></h2>
@@ -983,17 +983,17 @@ or  install using (you need <a href="https://git-scm.com/downloads">git installe
 
 <h2 id="check-connect">Check connect<a class="headerlink" href="#check-connect" title="Permanent link">&para;</a></h2>
 <p>return True/False</p>
-<div class="codehilite"><pre><span></span><code><span class="err">print(I_want_money.check_connect())</span>
+<div class="codehilite"><pre><span></span><code><span class="err">print(Iq.check_connect())</span>
 </code></pre></div>
 
 <h2 id="reconnect">Reconnect<a class="headerlink" href="#reconnect" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><code><span class="n">I_want_money</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+<div class="codehilite"><pre><span></span><code><span class="n">Iq</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
 </code></pre></div>
 
 <h2 id="time">time<a class="headerlink" href="#time" title="Permanent link">&para;</a></h2>
 <p>get_server_timestamp
 the get_server_timestamp time is sync with iqoption</p>
-<div class="codehilite"><pre><span></span><code><span class="n">I_want_money</span><span class="o">.</span><span class="n">get_server_timestamp</span><span class="p">()</span>
+<div class="codehilite"><pre><span></span><code><span class="n">Iq</span><span class="o">.</span><span class="n">get_server_timestamp</span><span class="p">()</span>
 </code></pre></div>
             
             
