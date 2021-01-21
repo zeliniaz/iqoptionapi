@@ -24,16 +24,6 @@ este es un repositorio no oficial, significa que es mantenido por la comunidad
 		alt="English" width="50" height="50" />
 	</a>
 </div><br><br>
-<div align="center">
-    HELP TO KEEP THIS PROJECT WORKING:<BR>
-    NÓS AJUDE A MANTER O PROJETO:<br>
-    AYÚDENOS A CONTINUAR EL PROYECTO:<br>
-
-<a href="https://bit.ly/ajudeocanaldofaria">
-    <img src="https://raw.githubusercontent.com/iqoptionapi/iqoptionapi/master/docs/paypal-donate-button.png"
-        alt="English" width="200" height="80" />
-</a>
-</div>
 
 This api is based on [Lu-Yi-Hsun](https://github.com/Lu-Yi-Hsun/iqoptionapi/)
 
