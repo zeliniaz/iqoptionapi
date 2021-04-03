@@ -74,7 +74,7 @@ def nested_dict(n, type):
     if n == 1:
         return defaultdict(type)
     else:
-        return defaultdict(lambda: nested_dict(n-1, type))
+        return defaultdict(lambda: nested_dict(n - 1, type))
 
 
 # InsecureRequestWarning: Unverified HTTPS request is being made.
@@ -234,8 +234,8 @@ class IQOptionAPI(object):  # pylint: disable=too-many-instance-attributes
         """
         logger = logging.getLogger(__name__)
 
-        logger.debug(method+": "+url+" headers: "+str(self.session.headers) +
-                     " cookies: "+str(self.session.cookies.get_dict()))
+        logger.debug(method + ": " + url + " headers: " + str(self.session.headers) +
+                     " cookies:  " + str(self.session.cookies.get_dict()))
 
         response = self.session.request(method=method,
                                         url=url,
@@ -415,6 +415,7 @@ class IQOptionAPI(object):  # pylint: disable=too-many-instance-attributes
         """
         return Getprofile(self)
 # for active code ...
+
     @property
     def get_balances(self):
         """Property for get IQ Option http getprofile resource.
@@ -442,6 +443,7 @@ class IQOptionAPI(object):  # pylint: disable=too-many-instance-attributes
         """
         return Ssid(self)
 # --------------------------------------------------------------------------------
+
     @property
     def Subscribe_Live_Deal(self):
         return Subscribe_live_deal(self)
@@ -808,7 +810,7 @@ class IQOptionAPI(object):  # pylint: disable=too-many-instance-attributes
         try:
             if self.token_login2fa is None:
                 response = self.login(
-                    self.username, self.password)# pylint: disable=not-callable
+                    self.username, self.password)  # pylint: disable=not-callable
             else:
                 response = self.login_2fa(
                     self.username, self.password, self.token_login2fa)
