@@ -3,7 +3,8 @@ from iqoptionapi.api import IQOptionAPI
 import iqoptionapi.constants as OP_code
 import iqoptionapi.country_id as Country
 import threading
-import time, json
+import time
+import json
 import logging
 import operator
 import iqoptionapi.global_value as global_value
@@ -771,7 +772,7 @@ class IQ_Option:
         while True:
             result = self.get_optioninfo_v2(10)
             if result['msg']['closed_options'][0]['id'][0] == id_number and result['msg']['closed_options'][0]['id'][0] != None:
-                return result['msg']['closed_options'][0]['win'], (result['msg']['closed_options'][0]['win_amount']-result['msg']['closed_options'][0]['amount'] if result['msg']['closed_options'][0]['win'] != 'equal' else 0)
+                return result['msg']['closed_options'][0]['win'], (result['msg']['closed_options'][0]['win_amount'] - result['msg']['closed_options'][0]['amount'] if result['msg']['closed_options'][0]['win'] != 'equal' else 0)
                 break
             time.sleep(1)
 
@@ -1536,6 +1537,7 @@ class IQ_Option:
         return self.api.users_availability
 
     def get_digital_payout(self, active):
+        self.api.digital_payout = None
         asset_id = OP_code.ACTIVES[active]
 
         self.api.subscribe_digital_price_splitter(asset_id)
@@ -1566,7 +1568,8 @@ class IQ_Option:
         if duration == 1:
             exp, _ = get_expiration_time(timestamp, duration)
         else:
-            now_date = datetime.fromtimestamp(timestamp) + timedelta(minutes=1, seconds=30)
+            now_date = datetime.fromtimestamp(
+                timestamp) + timedelta(minutes=1, seconds=30)
 
             while True:
                 if now_date.minute % duration == 0 and time.mktime(now_date.timetuple()) - timestamp > 30:
@@ -1577,7 +1580,9 @@ class IQ_Option:
 
         date_formated = str(datetime.utcfromtimestamp(exp).strftime("%Y%m%d%H%M"))
         active_id = str(OP_code.ACTIVES[active])
-        instrument_id = "do" + active_id + "A" + date_formated[:8] + "D" + date_formated[8:] + "00T" + str(duration) + "M" + action + "SPT"
+        instrument_id = "do" + active_id + "A" + \
+            date_formated[:8] + "D" + date_formated[8:] + \
+            "00T" + str(duration) + "M" + action + "SPT"
         logger = logging.getLogger(__name__)
         logger.info(instrument_id)
         request_id = self.api.place_digital_option_v2(instrument_id, active_id, amount)
