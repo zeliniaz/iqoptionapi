@@ -156,8 +156,9 @@ class IQ_Option:
 
     def check_connect(self):
         # True/False
-
-        if global_value.check_websocket_if_connect == 0:
+        # if not connected, sometimes it's None, sometimes its '0', so
+        # both will fall on this first case
+        if not global_value.check_websocket_if_connect:
             return False
         else:
             return True
