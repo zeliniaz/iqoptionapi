@@ -14,7 +14,7 @@ este es un repositorio no oficial, significa que es mantenido por la comunidad
 
 Due to the large amount of scammers that have appeared in the market, it is recommended that you DO NOT enter your password into an unknown exe or robot site that operates on iqoption because many of those have stolen people's passwords so be careful. It's best if you develop your robot or hire someone you trust.
 
-Devido a grande quantidade de golpistas que tem aparecido no mercado, recomenda-se que você NÃO inserir sua senha em  exe ou site de robo desconhecidos que opera na iqoption porque muitos desse tem roubado as senhas das pessoas então tomem cuidado. O melhor é você desenvolver seu robo ou contratar alguem de confiança. 
+Devido a grande quantidade de golpistas que tem aparecido no mercado, recomenda-se que você NÃO inserir sua senha em exe ou sites de robo desconhecidos que opera na iqoption porque muitos desses tem roubado as senhas das pessoas então tomem cuidado. O melhor é você desenvolver seu robo ou contratar alguem de confiança. 
 
 ### Canal no youtube explicando com trabalhar com a api
 
