@@ -93,6 +93,10 @@ Now you can install this project as library:
 
 ```bash
 sudo pip install -U git+git://github.com/iqoptionapi/iqoptionapi.git
+
+OR 
+
+pip install -U https://github.com/iqoptionapi/iqoptionapi/archive/refs/heads/master.zip
 ```
 
 ```Python
