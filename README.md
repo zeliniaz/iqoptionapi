@@ -5,7 +5,7 @@ Para manter o projeto continuamente atualizado contribua com uma doação, com a
 
 As doações serão usadas para adicionar novas features citadas abaixo.
 
-https://bit.ly/ajudeocanaldofaria
+https://streamelements.com/iqoptionapi/tip
 <br><br>
 ## Español - AYUDA A MANTENER ESTE PROYECTO ACTIVO 
 Para mantener el proyecto continuamente actualizado, contribuye con una donación, con cualquier corrección o mejora.
@@ -14,7 +14,7 @@ Las donaciones se utilizarán para agregar nuevas funciones que se mencionan a c
 
 EN: To keep the project continuously updated you can contribute with a donation or with some correction or improvement.
 
-https://bit.ly/ajudeocanaldofaria
+https://streamelements.com/iqoptionapi/tip
 <br><br>
 
 ## HELP KEEPING THIS PROJECT ACTIVE
@@ -23,7 +23,7 @@ To keep project continuously updated, contribute with a donation, with any corre
 
 Donations will be used to add new features mentioned below.
 
-https://bit.ly/ajudeocanaldofaria
+https://streamelements.com/iqoptionapi/tip
 <br><br>
 
 ## PLANEJAMENTO DE NOVAS FEATURES 

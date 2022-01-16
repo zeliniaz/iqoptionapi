@@ -25,7 +25,7 @@ theme:
   logo: "logo.png"
   name: "material" #readthedocs/readthedocs
   custom_dir: doc/theme/material
-  donation_link: "https://bit.ly/ajudeocanaldofaria"
+  donation_link: "https://streamelements.com/iqoptionapi/tip"
   icon: assets/images/favicon.png
   palette:
     primary: "indigo"
