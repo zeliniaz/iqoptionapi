@@ -11,6 +11,7 @@ import iqoptionapi.global_value as global_value
 from collections import defaultdict
 from collections import deque
 from iqoptionapi.expiration import get_expiration_time, get_remaning_time
+from iqoptionapi.version_control import api_version
 from datetime import datetime, timedelta
 from random import randint
 
@@ -23,7 +24,7 @@ def nested_dict(n, type):
 
 
 class IQ_Option:
-    __version__ = "7.0.0"
+    __version__ = api_version
 
     def __init__(self, email, password, active_account_type="PRACTICE"):
         self.size = [1, 5, 10, 15, 30, 60, 120, 300, 600, 900, 1800,
