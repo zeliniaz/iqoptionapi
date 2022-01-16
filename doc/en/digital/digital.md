@@ -1,6 +1,16 @@
 # Digital
 
 
+## Payout
+
+```python
+active = 'EURUSD'
+payout = Iq.get_digital_payout(active)
+print(payout)
+```
+
+![payout](image/payout.png)
+
 ## Nearest strike mode
 ![](image/near.png)
 ### sample

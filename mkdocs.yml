@@ -75,6 +75,7 @@ nav:
   - Home: index.md
   - English:
       - Get Start: en/index.md
+      - 2 factor Auth: en/2 factor/index.md
       - Account: en/account/account.md
       - For all: en/all/all.md
       - Binary option: en/binary option/binary option.md
