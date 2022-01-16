@@ -33,6 +33,10 @@ ES: PLANIFICACIÓN DE NUEVAS CARACTERÍSTICAS
 <br/>
  - CALENDARIO ECONOMICO / ECONOMIC CALENDAR (UNDER DEVELOPMENT)
 <br><br>
+Descrição: 
+Pega o calendario econimico da iqoption.
+Essa feature vai possibilitar que vocês possar evitar fazer operações quando estiver muito arriscado.
+<br/><br/>
 
 ![ECONOMIC CALENDAR](image/econimic_calendar.png)
 
