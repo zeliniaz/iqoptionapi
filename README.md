@@ -30,8 +30,8 @@ https://bit.ly/ajudeocanaldofaria
 EN: NEW FEATURES PLANNING<br>
 ES: PLANIFICACIÓN DE NUEVAS CARACTERÍSTICAS
 
-<br/>
- - CALENDARIO ECONOMICO / ECONOMIC CALENDAR (UNDER DEVELOPMENT)
+
+- CALENDARIO ECONOMICO / ECONOMIC CALENDAR (UNDER DEVELOPMENT)
 <br><br>
 Descrição: 
 Pega o calendario econimico da iqoption.
@@ -39,8 +39,10 @@ Essa feature vai possibilitar que vocês possar evitar fazer operações quando 
 <br/><br/>
 
 ![ECONOMIC CALENDAR](image/econimic_calendar.png)
+<br/>
 
-
+- FEED DE NOTICIAS/ NEWS FEED 
+<br/><br/>
 
 ## IQOPTION API SUPPORTED BY COMMUNITY
 
