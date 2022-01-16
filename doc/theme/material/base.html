@@ -4,6 +4,7 @@
 {% import "partials/language.html" as lang with context %}
 {% set palette = config.theme.palette %}
 {% set font = config.theme.font %}
+{% set donation_link = config.theme.donation_link or "#" %}
 <!doctype html>
 <html lang="{{ lang.t('language') }}" class="no-js">
 
@@ -198,7 +199,7 @@
         <h3 class="don-title">
           Support this work
         </h3>
-        <a href="#" class="don-link">
+        <a href="{{donation_link}}" class="don-link">
           Donation
         </a>
       </div>
@@ -212,7 +213,7 @@
         <h3 class="don-title">
           Apoya este proyecto con una donación
         </h3>
-        <a href="#" class="don-link">
+        <a href="{{donation_link}}" class="don-link">
           Donación
         </a>
       </div>
@@ -223,7 +224,7 @@
         <h3 class="don-title">
           Apoie este trabalho
         </h3>
-        <a href="#" class="don-link">
+        <a href="{{donation_link}}" class="don-link">
           Doação
         </a>
       </div>
