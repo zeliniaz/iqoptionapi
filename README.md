@@ -42,6 +42,10 @@ Essa feature vai possibilitar que vocês possar evitar fazer operações quando 
 <br/>
 
 - FEED DE NOTICIAS/ NEWS FEED 
+<br><br>
+Descrição: 
+Noticias sobre o mercado 
+![NEWS FEED](image/news_feed.png)
 <br/><br/>
 
 ## IQOPTION API SUPPORTED BY COMMUNITY
