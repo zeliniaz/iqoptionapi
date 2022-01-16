@@ -1,3 +1,20 @@
+
+## CONTRIBUTE
+
+{% set donation_link = config.theme.donation_link or "#" %}
+
+[Ajudar a manter o projeto e trazer novas features<br>Help maintain the project and bring new features]({{ donation_link }})
+
+## UPCOMMING FEATURES 
+
+- Economic calendar (UNDER DEVELOPMENT)
+
+![ECONOMIC CALENDAR](image/features/econimic_calendar.png)
+
+- News feed
+
+![NEWS FEED](image/features/news_feed.png)
+
 ## IQOPTION API SUPPORTED BY COMMUNITY
 
 This api is intended to be an open source project to communicate with iqOption site.

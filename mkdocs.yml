@@ -18,11 +18,14 @@ plugins:
         - pt
         - en
         - es
+  - macros
+  
 theme:
   language: "en"
   logo: "logo.png"
   name: "material" #readthedocs/readthedocs
   custom_dir: doc/theme/material
+  donation_link: "https://bit.ly/ajudeocanaldofaria"
   icon: assets/images/favicon.png
   palette:
     primary: "indigo"
