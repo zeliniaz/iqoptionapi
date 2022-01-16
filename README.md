@@ -1,3 +1,10 @@
+### HELP KEEPING THIS PROJECT ACTIVE 
+### AYUDA A MANTENER ESTE PROYECTO ACTIVO 
+### AJUDE A MANTER O PROJETO ATIVO
+
+https://bit.ly/ajudeocanaldofaria
+
+
 ## IQOPTION API SUPPORTED BY COMMUNITY
 
 This api is intended to be an open source project to communicate with iqOption site.
