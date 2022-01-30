@@ -1,7 +1,7 @@
 """Module for IQ option websocket."""
 import iqoptionapi.constants as OP_code
 
-def option(api, message):
+def commission_changed(api, message):
     if message["name"] == "commission-changed":
         instrument_type = message["msg"]["instrument_type"]
         active_id = message["msg"]["active_id"]
