@@ -299,7 +299,7 @@ class IQ_Option:
                             else:
                                 self.OPEN_TIME[option][name]["open"] = True
                         else:
-                            self.OPEN_TIME[option][name]["open"] = active["enabled"]    
+                            self.OPEN_TIME[option][name]["open"] = active["enabled"]
 
     def __get_digital_open(self):
         # for digital options
@@ -364,16 +364,16 @@ class IQ_Option:
             name = init_info["result"]["turbo"]["actives"][actives]["name"]
             name = name[name.index(".") + 1:len(name)]
             all_profit[name]["turbo"] = (
-                100.0 -
-                init_info["result"]["turbo"]["actives"][actives]["option"]["profit"][
+                100.0
+                - init_info["result"]["turbo"]["actives"][actives]["option"]["profit"][
                     "commission"]) / 100.0
 
         for actives in init_info["result"]["binary"]["actives"]:
             name = init_info["result"]["binary"]["actives"][actives]["name"]
             name = name[name.index(".") + 1:len(name)]
             all_profit[name]["binary"] = (
-                100.0 -
-                init_info["result"]["binary"]["actives"][actives]["option"]["profit"][
+                100.0
+                - init_info["result"]["binary"]["actives"][actives]["option"]["profit"][
                     "commission"]) / 100.0
         return all_profit
 
@@ -639,8 +639,8 @@ class IQ_Option:
         start = time.time()
         while True:
             if time.time() - start > 20:
-                logging.error('**error** fail ' + ACTIVE +
-                              ' start_candles_all_size_stream late for 10 sec')
+                logging.error('**error** fail ' + ACTIVE
+                              + ' start_candles_all_size_stream late for 10 sec')
                 return False
             try:
                 if self.api.candle_generated_all_size_check[str(ACTIVE)] == True:
@@ -747,17 +747,17 @@ class IQ_Option:
         del self.api.order_binary[order_id]
         return your_order
 
-    def check_win(self, id_number):
-        # 'win':win money 'equal':no win no loose   'loose':loose money
-        while True:
-            try:
-                listinfodata_dict = self.api.listinfodata.get(id_number)
-                if listinfodata_dict["game_state"] == 1:
-                    break
-            except:
-                pass
-        self.api.listinfodata.delete(id_number)
-        return listinfodata_dict["win"]
+    # def check_win(self, id_number):
+    #     # 'win':win money 'equal':no win no loose   'loose':loose money
+    #     while True:
+    #         try:
+    #             listinfodata_dict = self.api.listinfodata.get(id_number)
+    #             if listinfodata_dict["game_state"] == 1:
+    #                 break
+    #         except:
+    #             pass
+    #     self.api.listinfodata.delete(id_number)
+    #     return listinfodata_dict["win"]
 
     def check_win_v2(self, id_number, polling_time):
         while True:
@@ -1126,7 +1126,6 @@ class IQ_Option:
         instrument_quites_generated_data = self.get_instrument_quites_generated_data(
             ACTIVES, duration)
 
-
         f_tmp = get_instrument_id_to_bid(
             instrument_quites_generated_data, aVar)
         # f is bidprice of lower_instrument_id ,f2 is bidprice of upper_instrument_id
@@ -1157,8 +1156,8 @@ class IQ_Option:
                     f = abs(f2 - f)
 
             elif z:
-                f += ((instrumentStrikeValue - spotLowerInstrumentStrike) /
-                      (spotUpperInstrumentStrike - spotLowerInstrumentStrike)) * (f2 - f)
+                f += ((instrumentStrikeValue - spotLowerInstrumentStrike)
+                      / (spotUpperInstrumentStrike - spotLowerInstrumentStrike)) * (f2 - f)
             else:
                 instrumentStrikeValue = (spotUpperInstrumentStrike - instrumentStrikeValue) / (
                     spotUpperInstrumentStrike - spotLowerInstrumentStrike)
@@ -1224,6 +1223,34 @@ class IQ_Option:
         else:
             return False, None
 
+    def check_win(self, buy_order_id, market):
+        if market == 'digital':
+            return self.check_win_digital_v2(buy_order_id)
+        elif market == 'binary':
+            return self.check_win_binary(buy_order_id)
+        else:
+            return False, None
+
+        # ADD check win binary
+
+    def check_win_binary(self, buy_order_id):
+
+        while self.get_async_order(buy_order_id)["position-changed"] == {}:
+            pass
+        order_data = self.get_async_order(
+            buy_order_id)["position-changed"]["msg"]
+        if order_data != None:
+            if order_data["status"] == "closed" and order_data["source"] == "binary-options":
+                if order_data["close_reason"] == "win":
+                    return True, order_data["close_profit"] - order_data["invest"]
+                elif order_data["close_reason"] == "loose":
+                    return True, 0
+                elif order_data["close_reason"] == "default":
+                    return True, order_data["pnl_realized"]
+            else:
+                return False, None
+        else:
+            return False, None
     # ----------------------------------------------------------
     # -----------------BUY_for__Forex__&&__stock(cfd)__&&__ctrpto
 
